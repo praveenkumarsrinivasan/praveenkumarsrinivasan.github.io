@@ -30,6 +30,7 @@ paginate:               5
 #relative_permalinks:   false
 #permalink:             '/blog/:year/:title/'
 permalink:              pretty
+relative_permalinks:    false
 excerpt_separator:      "{{ more }}"
 
 # Dependencies

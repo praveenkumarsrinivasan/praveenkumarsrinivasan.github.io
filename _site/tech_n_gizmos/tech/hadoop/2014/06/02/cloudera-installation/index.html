@@ -56,15 +56,17 @@
       
       
       
+      
+      
         
-          <a class="sidebar-nav-item" href="/about/">About</a>
+          <a class="sidebar-nav-item" href="/tech_n_gizmos/">Tech n Gizmos</a>
         
       
       
       
-      
-      
-      
+        
+          <a class="sidebar-nav-item" href="/travel_n_lifestyle/">Travel n LifeStyle</a>
+        
       
       
       
@@ -80,19 +82,15 @@
       
       
       
-      
-      
-      
-      
         
-          <a class="sidebar-nav-item" href="/tech_n_gizmos/">Tech n Gizmos</a>
+          <a class="sidebar-nav-item" href="/about/">About</a>
         
       
       
       
-        
-          <a class="sidebar-nav-item" href="/travel_n_lifestyle/">Travel n LifeStyle</a>
-        
+      
+      
+      
       
       
       
@@ -147,14 +145,14 @@
 <ul>
 <li>Install ssh</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo apt-get -y install ssh
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install ssh
 sudo apt-get -y install rsync
 sudo apt-get -y install openssh-server
 </code></pre></div>
 <ul>
 <li>Install python avro</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo apt-get -y install python-virtualenv
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install python-virtualenv
 sudo apt-get -y install python-setuptools
 sudo easy_install virtualenv
 sudo easy_install avro
@@ -162,10 +160,10 @@ sudo easy_install avro
 <li><p>Set up <strong>cloudera user account</strong></p>
 
 <p>Create the cloudera user account</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo useradd -G sudo -s /bin/bash -m cloudera
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo useradd -G sudo -s /bin/bash -m cloudera
 </code></pre></div>
 <p>Set a password for the account</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo passwd cloudera
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo passwd cloudera
 </code></pre></div></li>
 <li><p>The installation requires an account with <strong>password less sudo rights</strong>. Hence, make the following temporary changes and <em>revert back these changes after the installation</em></p>
 
@@ -176,7 +174,7 @@ sudo nano /etc/sudoers
 </code></li>
 <li>Add the following line to the file</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">%cloudera ALL=(ALL:ALL) NOPASSWD:ALL
+<div class="highlight"><pre><code class="text language-text" data-lang="text">%cloudera ALL=(ALL:ALL) NOPASSWD:ALL
 </code></pre></div></li>
 <li><p>Config <strong>hostname</strong> on all the nodes</p>
 
@@ -186,22 +184,22 @@ sudo nano /etc/sudoers
 <li>Make the necessary changes to <code>/etc/hosts</code> and <code>/etc/hostname</code></li>
 <li>Comment out all the lines which start with <code>127.*</code>, as we would be using the host&#39;s network ip-address</li>
 <li><p>Add the appropriate ip-addresses and hostnames for all the nodes in the below mentioned format</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">IP-Address  Full-Qualified-Hostname  Short-Hostname
+<div class="highlight"><pre><code class="text language-text" data-lang="text">IP-Address  Full-Qualified-Hostname  Short-Hostname
 </code></pre></div></li>
 <li><p>For example:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">10.47.82.249 abc00.abc.com abc00
+<div class="highlight"><pre><code class="text language-text" data-lang="text">10.47.82.249 abc00.abc.com abc00
 10.47.83.45  abc01.abc.com abc01
 10.47.82.83  abc02.abc.com abc02
 10.47.82.89  abc03.abc.com abc03
 </code></pre></div></li>
 <li><p>Use the Short-hostname in the <code>/etc/hostname</code></p></li>
 <li><p>To make sure all the configurations work run the following commands</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">hostname
+<div class="highlight"><pre><code class="text language-text" data-lang="text">hostname
 hostname -a
 hostname -f
 </code></pre></div></li>
 <li><p>For Example</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">~ hostname
+<div class="highlight"><pre><code class="text language-text" data-lang="text">~ hostname
 abc00
 ~ hostname -a
 abc00
@@ -213,7 +211,7 @@ abc00.abc.com
 
 <ul>
 <li><p>Generate the SSH Keypair file, this would enable login without password</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">ssh-keygen -t rsa
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-keygen -t rsa
 sudo chmod 600 ~/.ssh/id_dsa.pub
 </code></pre></div>
 <ul>
@@ -221,12 +219,12 @@ sudo chmod 600 ~/.ssh/id_dsa.pub
 <li>When prompted for a password, leave it blank</li>
 </ul></li>
 <li><p>Copy the SSH Keypair file to all the remote host</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">ssh-copy-id -i ~/.ssh/id_rsa.pub cloudera@abc00.abc.com
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-copy-id -i ~/.ssh/id_rsa.pub cloudera@abc00.abc.com
 ssh-copy-id -i ~/.ssh/id_rsa.pub cloudera@abc01.abc.com
 </code></pre></div></li>
 </ul></li>
 <li><p>Run the Cloudera Manager Installer</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">wget http://archive.cloudera.com/cm5/installer/latest/cloudera-manager-installer.bin
+<div class="highlight"><pre><code class="text language-text" data-lang="text">wget http://archive.cloudera.com/cm5/installer/latest/cloudera-manager-installer.bin
 chmod +x cloudera-manager-installer.bin
 sudo ./cloudera-manager-installer.bin
 </code></pre></div>
@@ -244,25 +242,25 @@ sudo ./cloudera-manager-installer.bin
 <ul>
 <li>Uninstall the Cloudera Manager Server and its components</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo /usr/share/cmf/uninstall-cloudera-manager.sh
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo /usr/share/cmf/uninstall-cloudera-manager.sh
 </code></pre></div>
 <ul>
 <li><p>If uninstall-cloudera-manager.sh somehow doesn&#39;t work, do as follows:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo service cloudera-scm-server stop
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service cloudera-scm-server stop
 sudo service cloudera-scm-server-db stop
 </code></pre></div></li>
 </ul></li>
 <li><p>Step 3: On all Agent hosts, uninstall CDH and the Cloudera Manager Agents.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo service cloudera-scm-agent stop
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service cloudera-scm-agent stop
 </code></pre></div></li>
 <li><p>Step 4: On all Agent hosts, remove all Cloudera Manager data.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo rm -Rf /usr/share/{cmf,hue} /var/lib/cloudera* /var/cache/yum/cloudera*
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo rm -Rf /usr/share/{cmf,hue} /var/lib/cloudera* /var/cache/yum/cloudera*
 </code></pre></div></li>
 <li><p>Step 5: Remove the Cloudera Manager lock file.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo rm /tmp/.scm_prepare_node.lock
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo rm /tmp/.scm_prepare_node.lock
 </code></pre></div></li>
 <li><p>Step 6: Finally (just to make sure nothing is left out)</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">sudo service cloudera-scm-server stop
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service cloudera-scm-server stop
 sudo service cloudera-scm-server-db stop
 sudo apt-get remove  cloudera-manager-server cloudera-manager-server-db cloudera-manager-daemons
 sudo service cloudera-scm-agent hard_stop

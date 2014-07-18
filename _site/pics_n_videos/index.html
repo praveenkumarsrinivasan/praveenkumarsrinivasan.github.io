@@ -56,15 +56,17 @@
       
       
       
+      
+      
         
-          <a class="sidebar-nav-item" href="/about/">About</a>
+          <a class="sidebar-nav-item" href="/tech_n_gizmos/">Tech n Gizmos</a>
         
       
       
       
-      
-      
-      
+        
+          <a class="sidebar-nav-item" href="/travel_n_lifestyle/">Travel n LifeStyle</a>
+        
       
       
       
@@ -80,19 +82,15 @@
       
       
       
-      
-      
-      
-      
         
-          <a class="sidebar-nav-item" href="/tech_n_gizmos/">Tech n Gizmos</a>
+          <a class="sidebar-nav-item" href="/about/">About</a>
         
       
       
       
-        
-          <a class="sidebar-nav-item" href="/travel_n_lifestyle/">Travel n LifeStyle</a>
-        
+      
+      
+      
       
       
       
@@ -163,6 +161,33 @@
 
 
 
+
+var feed = new Instafeed({
+    //get: 'user',
+    //userId: 428869471,
+    get: 'tagged',
+    tagName: 'awesome',
+    //limit: 20,
+    //sortBy: 'most-liked',
+    clientId: 'b7ab1afcd1a24238bc159637c69b4fef',
+    //accessToken: '428869471.467ede5.989b08686e4d43e7b382da94ce54085e',
+    after: function () {
+        var images = $("#instafeed").find('a');
+        $.each(images, function(index, image) {
+            console.log();
+            var delay = (index * 75) + 'ms';
+            $(image).css('-webkit-animation-delay', delay);
+            $(image).css('-moz-animation-delay', delay);
+            $(image).css('-ms-animation-delay', delay);
+            $(image).css('-o-animation-delay', delay);
+            $(image).css('animation-delay', delay);
+            $(image).addClass('animated flipInX');
+        });
+    },
+    //template: '&hearts; '
+    template: ''
+});
+feed.run();
 
  &hellip; (<a href="/pics_n_videos/pics/2014/07/18/my_tech/">Read More</a>)</span>
                     </li>
@@ -249,6 +274,33 @@
 
 
 
+
+var feed = new Instafeed({
+    //get: 'user',
+    //userId: 428869471,
+    get: 'tagged',
+    tagName: 'awesome',
+    //limit: 20,
+    //sortBy: 'most-liked',
+    clientId: 'b7ab1afcd1a24238bc159637c69b4fef',
+    //accessToken: '428869471.467ede5.989b08686e4d43e7b382da94ce54085e',
+    after: function () {
+        var images = $("#instafeed").find('a');
+        $.each(images, function(index, image) {
+            console.log();
+            var delay = (index * 75) + 'ms';
+            $(image).css('-webkit-animation-delay', delay);
+            $(image).css('-moz-animation-delay', delay);
+            $(image).css('-ms-animation-delay', delay);
+            $(image).css('-o-animation-delay', delay);
+            $(image).css('animation-delay', delay);
+            $(image).addClass('animated flipInX');
+        });
+    },
+    //template: '&hearts; '
+    template: ''
+});
+feed.run();
 
  &hellip; (<a href="/pics_n_videos/pics/2014/07/18/my_tech/">Read More</a>)</span>
                     </li>
