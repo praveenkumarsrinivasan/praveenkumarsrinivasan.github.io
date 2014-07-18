@@ -1,0 +1,5 @@
+User-agent: * 
+Disallow: /about/thankyou/
+
+Sitemap: http://praveenkumarsrinivasan.com/sitemap.xml
+

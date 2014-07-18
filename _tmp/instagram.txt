@@ -1,0 +1,15 @@
+instagram.txt
+
+:Author: pksrinivasan
+:Email: pksrinivasan@praveen
+:Date: 2014-07-18 15:58
+
+CLIENT ID   b7ab1afcd1a24238bc159637c69b4fef
+CLIENT SECRET   4956aceddf2f48a1ac91d7aaf7f4304a
+WEBSITE URL http://prempraveen.com
+REDIRECT URI    http://prempraveen.com
+
+Success! Use the userId and token listed below to get your images:
+userId: 428869471
+accessToken: 428869471.467ede5.989b08686e4d43e7b382da94ce54085e
+

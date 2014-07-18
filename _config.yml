@@ -1,0 +1,45 @@
+#Author
+authors:
+    praveen:
+        name:           Praveen Kumar Srinivasan
+        display_name:   Praveen
+        email:          praveen.sxi@gmail.com
+        url:            https://praveenkumarsrinivasan.com
+        github:         https://github.com/praveenkumarsrinivasan
+        twitter:        https://twitter.com/praveen_sxi
+    prem:
+        name:           Premnath Srinivasan
+        display_name:   Prem
+        email:          srinivasan.premnath@gmail.com
+        url:            https://prempraveen.com
+    anjali:
+        name:           Anjali Gupta
+        display_name:   Anjali
+        email:          anjaliscorpio@gmail.com
+        url:            http://praveenkumarsrinivasan.com
+
+# Setup
+title:                  Praveen Kumar Srinivasan
+tagline:                '#TechEvangelist'
+description:            'Here you would find posts on various topics, such as, Algorithms, Programming, Dev Environments, Internet Gems and Movies.'
+url:                    http://praveenkumarsrinivasan.com
+
+include:                ['_pages']
+paginate:               5
+#pagination_path:       ''
+#relative_permalinks:   false
+#permalink:             '/blog/:year/:title/'
+permalink:              pretty
+excerpt_separator:      "{{ more }}"
+
+# Dependencies
+markdown:               redcarpet
+pygments:               true
+
+# Custom vars
+version:                2.0.0
+movies_n_music:         [movies_n_music, movies, music]
+pics_n_videos:          [pics_n_videos, pics, videos]
+tech_n_gizmos:          [tech_n_gizmos, tech, data_analytics, hadoop]
+travel_n_lifestyle:     [travel_n_lifestyle, travel, lifestyle]
+

@@ -1,27 +1,19 @@
 ---
 layout: default
 ---
-
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }} |
-    {% capture readtime %}{{ post.content | number_of_words | plus:91 | divided_by:180 }}{% endcapture %}
+{% assign author = site.authors[page.author] %}
+<div class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <span class="post-date">{{ page.date | date_to_string }} |
+    {{ author.display_name }} |
+    {% capture readtime %}{{ page.content | number_of_words | plus:91 | divided_by:180 }}{% endcapture %}
     {% if readtime == '0' %} &lt; 1{% else %}{{ readtime }}{% endif %} min. read |
-    <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.path | split:'/' | last | cgi_escape }}">View Comments</a>
-    </span>
-
-    {{ post.content }}
-  </div>
-  {% endfor %}
+    <a href="{{ page.url }}#disqus_thread" data-disqus-identifier="{{ page.path | split:'/' | last | cgi_escape }}">View Comments</a>
+  </span>
+  {{ content }}
 </div>
 
+<div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname  = 'praveenkumarsrinivasan',
         disqus_identifier = '{{ page.path | split:'/' | last | cgi_escape }}',
@@ -39,21 +31,22 @@ layout: default
     })();
 </script>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="/page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="/">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="/page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
+
+<div class="related">
+  <h2>Other Posts</h2>
+  <ul class="related-posts">
+      {% for post in site.related_posts limit:3 %}
+      <li>
+        <h3>
+          <a href="{{ post.url }}">
+            {{ post.title }}
+            <small>{{ post.date | date_to_string }}</small>
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+
+  </ul>
 </div>
 
 <script>
@@ -65,3 +58,4 @@ layout: default
   ga('create', 'UA-52928744-1', 'auto');
   ga('send', 'pageview');
 </script>
+

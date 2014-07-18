@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <link rel="canonical" href="/tech_n_gizmos/tech/hadoop/2014/06/02/cloudera-installation/" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Cloudera Installation &middot; Praveen Kumar Srinivasan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/contact.css">
+  <link rel="stylesheet" href="/css/gal.css">
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Here you would find posts on various topics, such as, Algorithms, Programming, Dev Environments, Internet Gems and Movies.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/movies_n_music/">Movies n Music</a>
+        
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/pics_n_videos/">Pics n Videos</a>
+        
+      
+      
+      
+      
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/tech_n_gizmos/">Tech n Gizmos</a>
+        
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/travel_n_lifestyle/">Travel n LifeStyle</a>
+        
+      
+      
+      
+      
+
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v2.0.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v2.0.0</span>
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2014. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Praveen Kumar Srinivasan</a>
+            <small>#TechEvangelist</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+<div class="post">
+  <h1 class="post-title">Cloudera Installation</h1>
+  <span class="post-date">02 Jun 2014 |
+    Praveen |
+    
+    3 min. read |
+    <a href="/tech_n_gizmos/tech/hadoop/2014/06/02/cloudera-installation/#disqus_thread" data-disqus-identifier="2014-06-02-cloudera-installation.md">View Comments</a>
+  </span>
+  <h2>Installing Cloudera on Ubuntu 12.04 LTS</h2>
+
+<hr>
+
+<ul>
+<li><p>Install the <strong>prerequisites</strong> for Cloudera-Manager and CDH</p>
+
+<ul>
+<li>Install ssh</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo apt-get -y install ssh
+sudo apt-get -y install rsync
+sudo apt-get -y install openssh-server
+</code></pre></div>
+<ul>
+<li>Install python avro</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo apt-get -y install python-virtualenv
+sudo apt-get -y install python-setuptools
+sudo easy_install virtualenv
+sudo easy_install avro
+</code></pre></div></li>
+<li><p>Set up <strong>cloudera user account</strong></p>
+
+<p>Create the cloudera user account</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo useradd -G sudo -s /bin/bash -m cloudera
+</code></pre></div>
+<p>Set a password for the account</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo passwd cloudera
+</code></pre></div></li>
+<li><p>The installation requires an account with <strong>password less sudo rights</strong>. Hence, make the following temporary changes and <em>revert back these changes after the installation</em></p>
+
+<ul>
+<li>Open the file /etc/sudoers
+<code>
+sudo nano /etc/sudoers
+</code></li>
+<li>Add the following line to the file</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">%cloudera ALL=(ALL:ALL) NOPASSWD:ALL
+</code></pre></div></li>
+<li><p>Config <strong>hostname</strong> on all the nodes</p>
+
+<ul>
+<li>This article assumes the use of IPv4 entries only</li>
+<li>Use FQDN in <code>/etc/hosts</code></li>
+<li>Make the necessary changes to <code>/etc/hosts</code> and <code>/etc/hostname</code></li>
+<li>Comment out all the lines which start with <code>127.*</code>, as we would be using the host&#39;s network ip-address</li>
+<li><p>Add the appropriate ip-addresses and hostnames for all the nodes in the below mentioned format</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">IP-Address  Full-Qualified-Hostname  Short-Hostname
+</code></pre></div></li>
+<li><p>For example:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">10.47.82.249 abc00.abc.com abc00
+10.47.83.45  abc01.abc.com abc01
+10.47.82.83  abc02.abc.com abc02
+10.47.82.89  abc03.abc.com abc03
+</code></pre></div></li>
+<li><p>Use the Short-hostname in the <code>/etc/hostname</code></p></li>
+<li><p>To make sure all the configurations work run the following commands</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">hostname
+hostname -a
+hostname -f
+</code></pre></div></li>
+<li><p>For Example</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">~ hostname
+abc00
+~ hostname -a
+abc00
+~ hostname -f
+abc00.abc.com
+</code></pre></div></li>
+</ul></li>
+<li><p>Set up <strong>keyless ssh login</strong> for user cloudera</p>
+
+<ul>
+<li><p>Generate the SSH Keypair file, this would enable login without password</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ssh-keygen -t rsa
+sudo chmod 600 ~/.ssh/id_dsa.pub
+</code></pre></div>
+<ul>
+<li>When prompted for a file, use default</li>
+<li>When prompted for a password, leave it blank</li>
+</ul></li>
+<li><p>Copy the SSH Keypair file to all the remote host</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ssh-copy-id -i ~/.ssh/id_rsa.pub cloudera@abc00.abc.com
+ssh-copy-id -i ~/.ssh/id_rsa.pub cloudera@abc01.abc.com
+</code></pre></div></li>
+</ul></li>
+<li><p>Run the Cloudera Manager Installer</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">wget http://archive.cloudera.com/cm5/installer/latest/cloudera-manager-installer.bin
+chmod +x cloudera-manager-installer.bin
+sudo ./cloudera-manager-installer.bin
+</code></pre></div>
+<ul>
+<li>Once the cloudera manager is installed it would automatically open the browser window with a web interface</li>
+<li>The default password for the application is <em>admin:admin</em></li>
+<li>The same can the done manually at any time by invoking hostname:7180 in the browser</li>
+</ul></li>
+<li><p>To uninstall the Cloudera Manager and CDH at any moment do the follows:</p>
+
+<ul>
+<li>Step 1: Stop all of your services.</li>
+<li><p>Step 2:</p>
+
+<ul>
+<li>Uninstall the Cloudera Manager Server and its components</li>
+</ul>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo /usr/share/cmf/uninstall-cloudera-manager.sh
+</code></pre></div>
+<ul>
+<li><p>If uninstall-cloudera-manager.sh somehow doesn&#39;t work, do as follows:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo service cloudera-scm-server stop
+sudo service cloudera-scm-server-db stop
+</code></pre></div></li>
+</ul></li>
+<li><p>Step 3: On all Agent hosts, uninstall CDH and the Cloudera Manager Agents.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo service cloudera-scm-agent stop
+</code></pre></div></li>
+<li><p>Step 4: On all Agent hosts, remove all Cloudera Manager data.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo rm -Rf /usr/share/{cmf,hue} /var/lib/cloudera* /var/cache/yum/cloudera*
+</code></pre></div></li>
+<li><p>Step 5: Remove the Cloudera Manager lock file.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo rm /tmp/.scm_prepare_node.lock
+</code></pre></div></li>
+<li><p>Step 6: Finally (just to make sure nothing is left out)</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">sudo service cloudera-scm-server stop
+sudo service cloudera-scm-server-db stop
+sudo apt-get remove  cloudera-manager-server cloudera-manager-server-db cloudera-manager-daemons
+sudo service cloudera-scm-agent hard_stop
+sudo apt-get remove cloudera-manager-agent cloudera-manager-daemons
+sudo rm -rf /usr/share/cmf
+</code></pre></div></li>
+</ul></li>
+</ul>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname  = 'praveenkumarsrinivasan',
+        disqus_identifier = '2014-06-02-cloudera-installation.md',
+        disqus_url        = 'http://praveenkumarsrinivasan.com/tech_n_gizmos/tech/hadoop/2014/06/02/cloudera-installation/'
+    ;
+    (function() {
+        var load = function(src){
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = src;
+            var e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e);
+        };
+        load('//' + disqus_shortname + '.disqus.com/count.js');
+        if (document.getElementById('disqus_thread')) {
+            load('//' + disqus_shortname + '.disqus.com/embed.js');
+        }
+    })();
+</script>
+
+
+<div class="related">
+  <h2>Other Posts</h2>
+  <ul class="related-posts">
+      
+      <li>
+        <h3>
+          <a href="/travel_n_lifestyle/lifestyle/restaurants/2014/07/18/onlyplace/">
+            Review The Only Place
+            <small>18 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pics_n_videos/pics/2014/07/18/my_tech/">
+            My tech setup
+            <small>18 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/movies_n_music/movies/favorites/2014/07/14/top-list/">
+            My top lists on everything about Movies
+            <small>14 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+
+  </ul>
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52928744-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+      </div>
+    </div>
+
+  </body>
+</html>
