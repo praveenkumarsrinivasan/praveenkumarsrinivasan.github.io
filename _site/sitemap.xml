@@ -4,7 +4,7 @@
     <!-- Site/Blog Indexes -->
     <url>
         <loc>http://praveenkumarsrinivasan.com</loc>
-        <lastmod>2014-07-18T17:59:23+05:30</lastmod>
+        <lastmod>2014-07-18T23:02:48+05:30</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -49,32 +49,32 @@
 
     <!-- Pages -->
     <url>
-        <loc>http://praveenkumarsrinivasan.com/tech_n_gizmos/</loc>
-        <lastmod>2014-07-18T17:59:23+05:30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://praveenkumarsrinivasan.com/travel_n_lifestyle/</loc>
-        <lastmod>2014-07-18T17:59:23+05:30</lastmod>
+        <loc>http://praveenkumarsrinivasan.com/about/</loc>
+        <lastmod>2014-07-18T23:02:48+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://praveenkumarsrinivasan.com/movies_n_music/</loc>
-        <lastmod>2014-07-18T17:59:23+05:30</lastmod>
+        <lastmod>2014-07-18T23:02:48+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://praveenkumarsrinivasan.com/pics_n_videos/</loc>
-        <lastmod>2014-07-18T17:59:23+05:30</lastmod>
+        <lastmod>2014-07-18T23:02:48+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>http://praveenkumarsrinivasan.com/about/</loc>
-        <lastmod>2014-07-18T17:59:23+05:30</lastmod>
+        <loc>http://praveenkumarsrinivasan.com/tech_n_gizmos/</loc>
+        <lastmod>2014-07-18T23:02:48+05:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://praveenkumarsrinivasan.com/travel_n_lifestyle/</loc>
+        <lastmod>2014-07-18T23:02:48+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
