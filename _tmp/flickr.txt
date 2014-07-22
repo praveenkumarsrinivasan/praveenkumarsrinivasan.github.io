@@ -11,3 +11,8 @@ Key:
 Secret:
 f8bc9a7211c9981f
 
+FlickRaw.api_key="24c7074b11d5fcb04ae05852da0cbcdb"
+FlickRaw.shared_secret="f8bc9a7211c9981f"
+
+flickr.access_token = "72157645430261530-20d93da8cba497c0"
+flickr.access_secret = "1c3d9f683c0122b9"
