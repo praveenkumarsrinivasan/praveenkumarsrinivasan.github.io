@@ -4,6 +4,12 @@ flickr.txt
 :Email: prempraveen@PremPraveens-MacBook-Pro.local
 :Date: 2014-07-18 22:50
 
+user_id: 65476175@N02
+
+tech_setup_set:72157645835101202
+ferrari_set:72157645836275676
+
+
 praveenkumarsrinivasan.com
 Key:
 24c7074b11d5fcb04ae05852da0cbcdb
