@@ -36,13 +36,6 @@ excerpt_separator:      "{{ more }}"
 # Dependencies
 markdown:               redcarpet
 pygments:               true
-flickr:
-    enabled:            yes
-    cache_dir:          "_cache/flickr"
-    api_key:            24c7074b11d5fcb04ae05852da0cbcdb
-    shared_secret:      f8bc9a7211c9981f
-    access_token:       72157645430261530-20d93da8cba497c0
-    access_secret:      1c3d9f683c0122b9
 
 # Custom vars
 version:                2.0.0
