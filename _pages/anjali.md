@@ -6,11 +6,11 @@ layout:            page
 ## About Anjali Gupta
 
 <center>
-    <img src="https://farm4.staticflickr.com/3917/14606848469_40b5208b52_z.jpg" alt=""/>
+    <img src="https://farm4.staticflickr.com/3917/14606848469_40b5208b52_z.jpg" alt="" style="max-width:100%; height:auto;"/>
 </center>
 
 <p class="message">
-She is a Statistician by profession. She has a Master from University of Oxford. She has worked on a range of analytical problems such as short term & medium term demand forecasting, forecasting tomorrow's market price for power utilities across India, customer behavior analysis and market trend analysis using Market Sensitivity for increased customer retention and enhanced product marketing and several other financial services projects.
+Anjali Gupta is a Statistician by profession. She has a Masters from University of Oxford. She has worked on a range of analytical problems such as short term & medium term demand forecasting, forecasting tomorrow's market price for power utilities across India, customer behavior analysis and market trend analysis using Market Sensitivity for increased customer retention and enhanced product marketing and several other financial services projects.
 </p>
 
 <script>
