@@ -41,7 +41,7 @@ pygments:               true
 version:                2.0.0
 movies_n_music:         [movies_n_music, movies, music]
 pics_n_videos:          [pics_n_videos, pics, videos]
-tech_n_gizmos:          [tech_n_gizmos, tech, data_analytics, hadoop]
+tech_n_gizmos:          [tech_n_gizmos, tech, data_analytics, hadoop, vim]
 travel_n_lifestyle:     [travel_n_lifestyle, travel, lifestyle]
 
 

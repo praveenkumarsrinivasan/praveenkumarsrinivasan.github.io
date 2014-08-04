@@ -1,7 +1,7 @@
 ---
 permalink:         /about/
 layout:            page
-title:             About
+title:             About Me
 ---
 
 ```
@@ -36,6 +36,8 @@ Use the following form to send me an email or feel free to get in touch with me 
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-52928744-1', 'auto');
+  ga('create', 'UA-52928744-2', 'auto');
   ga('send', 'pageview');
+
 </script>
+

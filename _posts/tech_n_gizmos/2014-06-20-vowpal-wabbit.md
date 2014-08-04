@@ -1,10 +1,10 @@
 ---
 layout:            post
-title:             Vowpal Wabbit Installation
+title:             Installing Vowpal Wabbit on Ubuntu
 author:            praveen
 resource:          true
 categories:        [tech_n_gizmos, tech, data_analytics]
-tags:              [vowapal_wabbit, installation, ubuntu]
+tags:              [vowpal_wabbit, installation, ubuntu]
 ---
 
 ##Installing the prerequisites for `vowpal_wabbit`
