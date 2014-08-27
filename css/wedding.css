@@ -616,7 +616,8 @@ a {
 .section--home, #small-header {
     text-align: center;
     background-color: #FBDFC9;
-    color: white;
+    /*color: white;*/
+    color: black;
     /*opacity: .85;*/
     /*color: #161342;*/
     border-top: 5px solid #F6B788;
@@ -808,6 +809,9 @@ form .short_text label, form .radio_buttons span, form .checkboxes span, form .l
     height: 400px;
     width: 100%;
 }
+.section--directions {
+    background-color: #F3F3F3;
+}
 .section--directions p {
     font: 300 1em'Open Sans', sans-serif;
 }
@@ -819,10 +823,12 @@ form .short_text label, form .radio_buttons span, form .checkboxes span, form .l
 }
 .section--registry h1 {
     color: white;
+    color: black;
 }
 .section--registry p {
     color: #555555;
     color: white;
+    color: black;
     font: 300 1em/1.6em'Open Sans', sans-serif;
 }
 .section--registry .button {
