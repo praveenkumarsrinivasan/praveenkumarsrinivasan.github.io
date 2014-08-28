@@ -134,7 +134,7 @@ $(document).ready(function() {
                 changeImages(i);
             }
             i++;
-        }, 5000);
+        }, 10000);
     }
 
     change();
