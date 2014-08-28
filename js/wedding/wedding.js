@@ -131,6 +131,7 @@ $(document).ready(function() {
                 changeImages(i);
             } else {
                 i=1;
+                changeImages(i);
             }
             i++;
         }, 5000);
