@@ -141,6 +141,46 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/tech_n_gizmos/tech/data_analytics/2014/06/20/vowpal-wabbit/">
+        Installing Vowpal Wabbit on Ubuntu
+      </a>
+    </h1>
+
+    <span class="post-date">20 Jun 2014 |
+    
+    1 min. read |
+    <a href="/tech_n_gizmos/tech/data_analytics/2014/06/20/vowpal-wabbit/#disqus_thread" data-disqus-identifier="2014-06-20-vowpal-wabbit.md">View Comments</a>
+    </span>
+
+    <h2>Installing the prerequisites for <code>vowpal_wabbit</code></h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install build-essential
+sudo apt-get -y install automake
+sudo apt-get -y install autoconf
+sudo apt-get -y install libxmu-dev
+sudo apt-get -y install gcc
+sudo apt-get -y install libpthread-stubs0-dev
+sudo apt-get -y install libtool
+sudo apt-get -y install libboost-program-options-dev
+sudo apt-get -y install zlib1g-dev
+sudo apt-get -y install libc6
+sudo apt-get -y install libgcc1
+sudo apt-get -y install libstdc++6
+</code></pre></div>
+<h2>Configure Environment</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+</code></pre></div>
+<h2>Install vowpal_wabbit</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">git clone https://github.com/JohnLangford/vowpal_wabbit.git
+cd vowpal_wabbit
+./autogen.sh
+./configure
+make
+sudo make install
+</code></pre></div>
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/tech_n_gizmos/tech/hadoop/2014/06/02/cloudera-installation/">
         Cloudera Installation
       </a>

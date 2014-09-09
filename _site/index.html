@@ -141,6 +141,134 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/tech_n_gizmos/tech/hadoop/2014/09/09/puppet/">
+        Puppet Environment Setup
+      </a>
+    </h1>
+
+    <span class="post-date">09 Sep 2014 |
+    
+    2 min. read |
+    <a href="/tech_n_gizmos/tech/hadoop/2014/09/09/puppet/#disqus_thread" data-disqus-identifier="2014-09-09-puppet.markdown">View Comments</a>
+    </span>
+
+    <h2>Installing puppet on Ubuntu 12.04 LTS</h2>
+
+<hr>
+
+<ul>
+<li><p>Install the <strong>prerequisites</strong> for Puppet-Master</p>
+
+<ul>
+<li><p>Install packages</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install ssh
+sudo apt-get -y install vim
+sudo apt-get -y install git
+
+sudo apt-get -y install zlib1g-dev
+sudo apt-get -y install zlib1g
+sudo apt-get -y install libssl-dev
+</code></pre></div></li>
+<li><p>Install Ruby 2+ and Gems</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">wget ftp://xyz.lcs.mit.edu/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
+tar -xvf ruby-2.0.0-p247.tar.gz
+./configure
+make
+sudo make install
+wget http://production.cf.rubygems.org/rubygems/rubygems-2.4.1.tgz
+tar -xvf rubygems-2.4.1.tgz
+sudo ruby setup.rb
+</code></pre></div></li>
+<li><p>Install Puppet Master</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install puppetmaster
+wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+sudo dpkg -i puppetlabs-release-precise.deb
+sudo apt-get update
+sudo apt-get -y install puppetmaster-passenger
+sudo apt-get -y install puppetmaster
+sudo apt-get update
+sudo puppet resource package puppetmaster ensure=latest
+sudo service puppetmaster restart
+</code></pre></div></li>
+</ul></li>
+<li><p>Install Puppet Modules</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo gem install puppet-module
+sudo gem install librarian-puppet
+
+sudo puppet module install puppetlabs-stdlib
+sudo puppet module install rcoleman-puppet_module
+sudo puppet module install puppetlabs-puppetdb
+sudo puppet module install dalen-puppetdbquery
+sudo puppet module install jtopjian-sshkeys
+</code></pre></div></li>
+<li><p>Configure <strong>puppetdb</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">export RUBYLIB=/etc/puppet/modules/puppet-puppetdbquery/lib:$RUBYLIB
+sudo puppet resource package puppetdb ensure=latest
+sudo puppet resource package puppetdb-terminus ensure=latest
+sudo puppet resource service puppetdb ensure=running enable=true
+</code></pre></div>
+<ul>
+<li><p>Add the puppet master hostname details in the puppetdb.conf</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo vim /etc/puppet/puppetdb.conf
+[main]
+    server = abc123.abc.com
+    port = 8081
+</code></pre></div></li>
+<li><p>Add the follwing config in the puppet.conf</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo vim /etc/puppet/puppet.conf
+[master]
+    storeconfigs = true
+    storeconfigs_backend = puppetdb
+    reports = store,puppetdb
+</code></pre></div></li>
+<li><p>Add the following config in your route_file, the location of the same can be figured through the following command</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">puppet master --configprint route_file
+
+sudo vim ~/.puppet/routes.yaml
+---
+master:
+facts:
+    terminus: puppetdb
+    cache: yaml
+</code></pre></div></li>
+</ul></li>
+<li><p>Add hostnames of all the nodes in <code>/etc/hosts</code></p></li>
+<li><p>Check the status and control the status through following command</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service puppetmaster status
+sudo service puppetmaster start/stop
+</code></pre></div></li>
+<li><p>Once the Puppet-Master and the Puppet-Agent Nodes have been setup use the following command to sign the certificate</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo puppet cert --list
+sudo puppet cert --sign &lt;puppetagent-hostname&gt;
+</code></pre></div></li>
+<li><p>Install the <strong>prerequisites</strong> for Puppet-Agent</p>
+
+<ul>
+<li><p>Install packages</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install ssh
+sudo apt-get -y install vim
+sudo apt-get -y install puppet
+</code></pre></div></li>
+<li><p>Install Puppet Agent</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+sudo dpkg -i puppetlabs-release-precise.deb
+sudo apt-get update
+sudo apt-get -y install puppet
+sudo apt-get update
+sudo puppet resource package puppet ensure=latest
+</code></pre></div></li>
+</ul></li>
+<li><p>Add the necessary host details in the <code>/etc/hosts</code> file</p></li>
+<li><p>Change <code>start=yes</code> in <code>/etc/default/puppet</code>, to start puppet agent client at boot</p></li>
+<li><p>Use the following command to sync Puppet-Agent config with Puppet-Master</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo puppet agent --test --server=&#39;puppetmaster-hostname&#39;
+</code></pre></div></li>
+</ul>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/tech_n_gizmos/tech/vim/2014/08/01/vim/">
         Vim Study Series
       </a>
@@ -511,46 +639,6 @@ cltr-x cltr-f - File system completion
 <li>Cast Away</li>
 </ul>
 
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/tech_n_gizmos/tech/data_analytics/2014/06/20/vowpal-wabbit/">
-        Installing Vowpal Wabbit on Ubuntu
-      </a>
-    </h1>
-
-    <span class="post-date">20 Jun 2014 |
-    
-    1 min. read |
-    <a href="/tech_n_gizmos/tech/data_analytics/2014/06/20/vowpal-wabbit/#disqus_thread" data-disqus-identifier="2014-06-20-vowpal-wabbit.md">View Comments</a>
-    </span>
-
-    <h2>Installing the prerequisites for <code>vowpal_wabbit</code></h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install build-essential
-sudo apt-get -y install automake
-sudo apt-get -y install autoconf
-sudo apt-get -y install libxmu-dev
-sudo apt-get -y install gcc
-sudo apt-get -y install libpthread-stubs0-dev
-sudo apt-get -y install libtool
-sudo apt-get -y install libboost-program-options-dev
-sudo apt-get -y install zlib1g-dev
-sudo apt-get -y install libc6
-sudo apt-get -y install libgcc1
-sudo apt-get -y install libstdc++6
-</code></pre></div>
-<h2>Configure Environment</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-</code></pre></div>
-<h2>Install vowpal_wabbit</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git clone https://github.com/JohnLangford/vowpal_wabbit.git
-cd vowpal_wabbit
-./autogen.sh
-./configure
-make
-sudo make install
-</code></pre></div>
   </div>
   
 </div>
