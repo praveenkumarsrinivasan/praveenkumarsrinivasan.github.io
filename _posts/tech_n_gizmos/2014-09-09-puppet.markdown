@@ -122,6 +122,7 @@ tags:              [cloudera, installation, ubuntu, puppet]
     ```
 
 - Install the **prerequisites** for Puppet-Agent
+
     + Install packages
 
         ```
@@ -130,7 +131,7 @@ tags:              [cloudera, installation, ubuntu, puppet]
         sudo apt-get -y install puppet
         ```
 
-    + Install Ruby 2+ and Gems
+    + Install Puppet Agent
 
         ```
         wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
@@ -141,13 +142,13 @@ tags:              [cloudera, installation, ubuntu, puppet]
         sudo puppet resource package puppet ensure=latest
         ```
 
-    + Add the necessary host details in the `/etc/hosts` file
++ Add the necessary host details in the `/etc/hosts` file
 
-    + Change `start=yes` in `/etc/default/puppet`, to start puppet agent client at boot
++ Change `start=yes` in `/etc/default/puppet`, to start puppet agent client at boot
 
-    + Use the following command to sync Puppet-Agent config with Puppet-Master
++ Use the following command to sync Puppet-Agent config with Puppet-Master
 
-        ```
-        sudo puppet agent --test --server='puppetmaster-hostname'
-        ```
+    ```
+    sudo puppet agent --test --server='puppetmaster-hostname'
+    ```
 
