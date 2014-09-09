@@ -4,12 +4,22 @@
     <!-- Site/Blog Indexes -->
     <url>
         <loc>http://praveenkumarsrinivasan.com</loc>
+<<<<<<< HEAD
         <lastmod>2014-08-25T12:18:00+05:30</lastmod>
+=======
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
+>>>>>>> 3d03909fe78d2ef8fbedad4e05288728a5158c26
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
 
     <!-- Posts -->
+    <url>
+        <loc>http://praveenkumarsrinivasan.com/tech_n_gizmos/tech/vim/2014/08/01/vim/</loc>
+        <lastmod>2014-08-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
     <url>
         <loc>http://praveenkumarsrinivasan.com/pics_n_videos/pics/2014/07/28/my-new-toy/</loc>
         <lastmod>2014-07-28</lastmod>
@@ -49,38 +59,83 @@
 
     <!-- Pages -->
     <url>
+        <loc>http://praveenkumarsrinivasan.com/about/</loc>
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>http://praveenkumarsrinivasan.com/anjali/</loc>
+<<<<<<< HEAD
         <lastmod>2014-08-25T12:18:00+05:30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://praveenkumarsrinivasan.com/tech_n_gizmos/</loc>
-        <lastmod>2014-08-25T12:18:00+05:30</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>http://praveenkumarsrinivasan.com/travel_n_lifestyle/</loc>
-        <lastmod>2014-08-25T12:18:00+05:30</lastmod>
+=======
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://praveenkumarsrinivasan.com/movies_n_music/</loc>
-        <lastmod>2014-08-25T12:18:00+05:30</lastmod>
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://praveenkumarsrinivasan.com/pics_n_videos/</loc>
-        <lastmod>2014-08-25T12:18:00+05:30</lastmod>
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
+>>>>>>> 3d03909fe78d2ef8fbedad4e05288728a5158c26
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>http://praveenkumarsrinivasan.com/tech_n_gizmos/</loc>
+<<<<<<< HEAD
+        <lastmod>2014-08-25T12:18:00+05:30</lastmod>
+=======
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
+>>>>>>> 3d03909fe78d2ef8fbedad4e05288728a5158c26
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>http://praveenkumarsrinivasan.com/travel_n_lifestyle/</loc>
+<<<<<<< HEAD
+        <lastmod>2014-08-25T12:18:00+05:30</lastmod>
+=======
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
+>>>>>>> 3d03909fe78d2ef8fbedad4e05288728a5158c26
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+<<<<<<< HEAD
+        <loc>http://praveenkumarsrinivasan.com/movies_n_music/</loc>
+        <lastmod>2014-08-25T12:18:00+05:30</lastmod>
+=======
+        <loc>http://praveenkumarsrinivasan.com/wedding_contact/</loc>
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
+>>>>>>> 3d03909fe78d2ef8fbedad4e05288728a5158c26
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+<<<<<<< HEAD
+        <loc>http://praveenkumarsrinivasan.com/pics_n_videos/</loc>
+        <lastmod>2014-08-25T12:18:00+05:30</lastmod>
+=======
+        <loc>http://praveenkumarsrinivasan.com/wedding_contact/thankyou/</loc>
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
+>>>>>>> 3d03909fe78d2ef8fbedad4e05288728a5158c26
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+<<<<<<< HEAD
         <loc>http://praveenkumarsrinivasan.com/about/</loc>
         <lastmod>2014-08-25T12:18:00+05:30</lastmod>
+=======
+        <loc>http://praveenkumarsrinivasan.com/wedding/</loc>
+        <lastmod>2014-08-30T09:03:35+05:30</lastmod>
+>>>>>>> 3d03909fe78d2ef8fbedad4e05288728a5158c26
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <link rel="canonical" href="/tech_n_gizmos/tech/vim/2014/08/01/vim/" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Vim Study Series &middot; Praveen Kumar Srinivasan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+<!--
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+-->
+
+  <link rel="apple-touch-icon-precomposed" href="/public/pks.png">
+  <link rel="shortcut icon" sizes="64x28" href="/public/pks.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Here you would find posts on various topics, such as, Algorithms, Programming, Dev Environments, Internet Gems and Movies.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About Me</a>
+        
+      
+      
+      
+      
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/movies_n_music/">Movies n Music</a>
+        
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/pics_n_videos/">Pics n Videos</a>
+        
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/tech_n_gizmos/">Tech n Gizmos</a>
+        
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/travel_n_lifestyle/">Travel n LifeStyle</a>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v2.0.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v2.0.0</span>
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2014. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Praveen Kumar Srinivasan</a>
+            <small style="float:right">#TechEvangelist</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+<div class="post">
+  <h1 class="post-title">Vim Study Series</h1>
+  <span class="post-date">01 Aug 2014 |
+    Praveen |
+    
+    10 min. read |
+    <a href="/tech_n_gizmos/tech/vim/2014/08/01/vim/#disqus_thread" data-disqus-identifier="2014-08-01-vim.md">View Comments</a>
+  </span>
+  <p>This article introduces and showcases some of the features that makes <code>vi/vim</code> the most powerful editor ever built.
+Although there are numerous articles on the web on <code>Vi/Vim</code>, its is still every vim enthusiasts job to
+preach the uninitiated to do things the right way and the best way. I shall point out the reasons what made me switch and then point the problem of the traditional approach.</p>
+
+<p>Not only is it important for us to learn and do things the smart way. It is also important for the editor we use to provide us with smart and intuitive options.  I have been using vim for quite some time now along with other editors, it wasn&#39;t till I started facing RSI when I took vim more seriously and started swearing by it.  If not for anything else the what captivated me to use vim was the option to forgo the use of arrow keys and mouse. When we are working for hours, every single keystroke matters. Every time we use arrow keys and mouse in between typing we are straining ourself. This on a long run is very counterproductive and harmful. This is what made me do the switch. Apart from this vim is available across platforms, and it is very light weight and robust. </p>
+
+<p>Although the naive people could nag about most modern IDEs, at some point or the other everyone has to work on machines or VMs which makes our life miserable. Trying to run modern IDEs on such machine is like self inflicting pain.  Nothing but vim and good old shell scripts would make such machines look like super computers. The traditional editors teach or rather force us to do the things if not the wrong way the long and unintuitive way.  Many people shy away from vim because of the initial learning curve, but thats more so because it involves unlearning the traditional approach.  Once successfully initiated there is no looking back. Every other editor else seems quite naive and lame.</p>
+
+<p>One can&#39;t simply do any justice by writing a blog or series of them to explain all the features and benefits of vim. The objective of this article is just to motivate and get you started with vim. Its quite common to come across people who have been using vim for years and still end up learning something new. Don&#39;t shy away because their is always something to learn, infact this is the reason why vim is the best editor. There is always to learn and do things the right way. Below are some commands that should help you get started with vim. I will be updating this article as and when I learn or come across something new. Let me know if you have come across some cool vim tips and tricks. Happy vimming!</p>
+
+<h2>Editing Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">a  - Append text following current cursor position
+A  - Append text to the end of current line
+i  - Insert text before the current cursor position
+I  - Insert text at the beginning of the cursor line
+o  - Open up a new line following the current line and add text
+O  - Open up a new line in front of the current line and add text
+
+r  - Replace one character at the cursor position
+R  - Begin overstrike or replace mode, use ESC key to exit
+
+C  - Change till end of line
+cc - Change (replace) an entire line
+cw - Change (replace) to the end of word
+c$ - Change (replace) to the end of line
+s  - Delete character at cursor and substitute text
+S  - Delete line at cursor and substitute text (same as cc)
+xp - Transpose two letters (delete and paste, technically)
+</code></pre></div>
+<h2>Cursor Movement Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$  - Move cursor to the end of current line
+0  - Move cursor to the beginning of current line
+w  - Forward one word
+W  - Forward one word based on Whitespace
+b  - Backward one word
+B  - Backward one word based on Whitespace
+e  - End of the word
+E  - End of the word based on whitespace
+
+h  - Moves the cursor one character to the left
+l  - Moves the cursor one character to the right
+k  - Moves the cursor up one line
+j  - Moves the cursor down one line
+
+^F - Forward screenful
+^B - Backward screenful
+^f - One page forward
+^b - One page backward
+^U - Up half screenful
+^D - Down half screenful
+
+H  - Move cursor to top of screen(Head)
+M  - Move cursor to middle of screen(Middle)
+L  - Move cursor to bottom of screen(Last)
+
+zz - Position current line at top of the screen
+zt - Position current line at middle of the screen
+zb - Position current line at bottom of the screen
+
+*  - Highlight the word under cursor in forward direction
+g* - Same as above but without word boundary
+#  - Highlight the word under cursor in backward direction
+g# - Same as above but without word boundary
+/  - Pattern Search forward for the pattern
+?  - Pattern Search backward for the pattern
+n  - Next occurrence of the pattern in forward direction
+N  - Next occurrence of the pattern in forward direction
+
+gg - Move to beginning of file
+G  - Move to end of file
+
+]] - Move to next { in column 0
+[[ - Move to prev { in column 0
+][ - Move to next } in column 0
+[] - Move to prev } in column 0
+
+%  - Move to matching () | [] | {} | &lt;&gt;
+
+:mark - List marks
+ma - Mark a line
+&#39;a - Move back to the marked line
+`a - Move back to the line and marked column
+&quot;  - Move back to the last location
+
+aw - Mark a word
+ab - A () block (with braces)
+aB - A {} block (with brackets)
+ib - Inner () block
+iB - Inner {} block
+
+f[char] - Find char forward
+F[char] - Find char backward
+t[char] - Till char forward
+T[char] - Till char backward
+;       - Repeat the above command
+
+nG | :n - Cursor goes to the specified (n) line
+(10G goes to line 10)
+</code></pre></div>
+<h2>Visual Mode</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">v  - Visual mode per character
+V  - Visual mode linewise
+gv - Highlights what was previously selected in the same mode
+o  - Go to the other end of the highlighted text
+O  - move to Other corner of block
+I  - Blockwise Insert
+^V|^Q - Blockwise visual mode
+</code></pre></div>
+<h2>File Manipulation Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">:w  - Write workspace to original file
+:w  - File Write workspace to named file
+:e  - File Start editing a new file
+:r  - File Read contents of a file to the workspace
+:wq - Write file to disk and quit the editor
+:Wq - Write (save) a readonly file and quit
+:q! - Quit (no warning)
+:q  - Quit (with warning)
+ZZ  - Save workspace and quit the editor (same as :wq)
+ZQ  - Quit the editor without saving (same as :q!)
+
+:e filename  - Edit a file in a new buffer
+:bnext (:bn) - Go to next buffer
+:bprev (:bp) - Go to previous buffer
+:bd          - Delete a buffer (close a file)
+:sp filename - Open a file in a new buffer and split window
+ctrl+ws      - Split windows horizontally
+ctrl+wv      - Split windows vertically
+ctrl+ww      - Switch between windows
+ctrl+wq      - Quit a window
+
+(:10,25 w temp.txt - write lines 10 through 25 into file temp.txt)
+(Use :f to find out the line numbers you want)
+</code></pre></div>
+<h2>Text Modification Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">x   - Delete character under or after cursor
+X   - Delete character before the cursor
+dw  - Delete word from cursor on
+db  - Delete word backward
+dd  - Delete line
+d$  - Delete to end of line
+d^  - Delete to beginning of line
+
+Y   - Yank current line
+yy  - Yank current line
+y$  - Yank to end of current line from cursor
+yw  - Yank from cursor to end of current word
+5yy - Yank, for example, 5 lines
+
+p   - Paste below cursor
+P   - Paste above cursor
+&quot;2p - Paste from buffer 2 (there are 9)
+u   - Undo last change
+U   - Restore line
+
+J   - Joins the next line to the end of current line with a space
+gJ  - Joins the next line to the end of current line without a space
+
+:[range]d         - Delete [range] lines (default: current line)
+:[range]d {count} - Delete {count} lines, starting with [range]
+</code></pre></div>
+<h2>Other Useful Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Most commands can be repeated n times by typing a number before the command. (10dd means delete 10 lines)
+
+.    - Repeat last command
+U    - Convert selected text to uppercase
+u    - Convert selected text to lowercase
+~    - Toggle case of the selected characters
+=    - Fix the indentation of the current line
+
+:noh - Clear search highlight
+gf   - Open file under cursor
+gi   - Jumps to last editing point in insert mode
+
+:sort  - sort selected rows
+cltr-a - Increment the number
+cltr-x - Decrement the number
+
+q[letter] - Records a macro
+@[letter] - Plays the macro
+&quot;ap       - Paste macro
+
+cltr-v | cltr-q - Anything typed after is placed iterally
+</code></pre></div>
+<h2>Insert Mode Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">cltr-w - Delete word in insert mode
+cltr-T - Indent the line
+cltr-D - Unindent the line
+cltr-n - Word completion in forward direction
+cltr-p - Word completion in backward direction
+Ctrl-c - Switch out of insert mode. Same as ESC
+cltr-x cltr-l - Line completion
+cltr-x cltr-f - File system completion
+</code></pre></div>
+<h2>Substitute Command</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">:%s/old/new/g     - replace all old with new throughout file
+:%s/old/new/gc    - Same as above but with confirmations
+%s/\%1cOLD/NEW/gi - replace all the OLD with NEW in column 1
+%s/\%1vOLD/NEW/gi - replace all the OLD with NEW in virtual column 1
+</code></pre></div>
+<h2>Global Command</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">:g/pattern/command
+    - Exceute the command on the lines matching the pattern
+:g!/pattern/command | :v/pattern/command
+    - Exceute the command on the lines that do not match the pattern
+:g/pat1/s//pat2/g
+    - Replace every occurrence of pattern1 (pat1) with pat2
+:g/tIO/s//Ada.Text_IO/g
+    - Find and replace tIO by Ada.text_IO everywhere in the file
+:g/a/s// /g
+    - Replace the letter a, by blank
+:g/a/s///g
+    - Replace a by nothing
+:g/iternum/normal 20
+    - Increment all the number by 20 in the matched lines
+</code></pre></div>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname  = 'praveenkumarsrinivasan',
+        disqus_identifier = '2014-08-01-vim.md',
+        disqus_url        = 'http://praveenkumarsrinivasan.com/tech_n_gizmos/tech/vim/2014/08/01/vim/'
+    ;
+    (function() {
+        var load = function(src){
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = src;
+            var e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e);
+        };
+        load('//' + disqus_shortname + '.disqus.com/count.js');
+        if (document.getElementById('disqus_thread')) {
+            load('//' + disqus_shortname + '.disqus.com/embed.js');
+        }
+    })();
+</script>
+
+
+<div class="related">
+  <h2>Other Posts</h2>
+  <ul class="related-posts">
+      
+      <li>
+        <h3>
+          <a href="/pics_n_videos/pics/2014/07/28/my-new-toy/">
+            My new toy
+            <small>28 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pics_n_videos/pics/2014/07/18/my_tech/">
+            My tech setup
+            <small>18 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/movies_n_music/movies/favorites/2014/07/14/top-list/">
+            My top lists on everything about Movies
+            <small>14 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+
+  </ul>
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52928744-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+      </div>
+    </div>
+
+  </body>
+</html>

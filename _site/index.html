@@ -57,19 +57,13 @@
       
       
       
-      
-      
-      
-      
         
-          <a class="sidebar-nav-item" href="/tech_n_gizmos/">Tech n Gizmos</a>
+          <a class="sidebar-nav-item" href="/about/">About Me</a>
         
       
       
       
-        
-          <a class="sidebar-nav-item" href="/travel_n_lifestyle/">Travel n LifeStyle</a>
-        
+      
       
       
       
@@ -86,8 +80,22 @@
       
       
         
-          <a class="sidebar-nav-item" href="/about/">About</a>
+          <a class="sidebar-nav-item" href="/tech_n_gizmos/">Tech n Gizmos</a>
         
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/travel_n_lifestyle/">Travel n LifeStyle</a>
+        
+      
+      
+      
+      
+      
+      
+      
+      
       
       
       
@@ -123,13 +131,243 @@
 
           <h3 class="masthead-title">
             <a href="/" title="Home">Praveen Kumar Srinivasan</a>
-            <small>#TechEvangelist</small>
+            <small style="float:right">#TechEvangelist</small>
           </h3>
         </div>
       </div>
 
       <div class="container content">
         <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/tech_n_gizmos/tech/vim/2014/08/01/vim/">
+        Vim Study Series
+      </a>
+    </h1>
+
+    <span class="post-date">01 Aug 2014 |
+    
+    10 min. read |
+    <a href="/tech_n_gizmos/tech/vim/2014/08/01/vim/#disqus_thread" data-disqus-identifier="2014-08-01-vim.md">View Comments</a>
+    </span>
+
+    <p>This article introduces and showcases some of the features that makes <code>vi/vim</code> the most powerful editor ever built.
+Although there are numerous articles on the web on <code>Vi/Vim</code>, its is still every vim enthusiasts job to
+preach the uninitiated to do things the right way and the best way. I shall point out the reasons what made me switch and then point the problem of the traditional approach.</p>
+
+<p>Not only is it important for us to learn and do things the smart way. It is also important for the editor we use to provide us with smart and intuitive options.  I have been using vim for quite some time now along with other editors, it wasn&#39;t till I started facing RSI when I took vim more seriously and started swearing by it.  If not for anything else the what captivated me to use vim was the option to forgo the use of arrow keys and mouse. When we are working for hours, every single keystroke matters. Every time we use arrow keys and mouse in between typing we are straining ourself. This on a long run is very counterproductive and harmful. This is what made me do the switch. Apart from this vim is available across platforms, and it is very light weight and robust. </p>
+
+<p>Although the naive people could nag about most modern IDEs, at some point or the other everyone has to work on machines or VMs which makes our life miserable. Trying to run modern IDEs on such machine is like self inflicting pain.  Nothing but vim and good old shell scripts would make such machines look like super computers. The traditional editors teach or rather force us to do the things if not the wrong way the long and unintuitive way.  Many people shy away from vim because of the initial learning curve, but thats more so because it involves unlearning the traditional approach.  Once successfully initiated there is no looking back. Every other editor else seems quite naive and lame.</p>
+
+<p>One can&#39;t simply do any justice by writing a blog or series of them to explain all the features and benefits of vim. The objective of this article is just to motivate and get you started with vim. Its quite common to come across people who have been using vim for years and still end up learning something new. Don&#39;t shy away because their is always something to learn, infact this is the reason why vim is the best editor. There is always to learn and do things the right way. Below are some commands that should help you get started with vim. I will be updating this article as and when I learn or come across something new. Let me know if you have come across some cool vim tips and tricks. Happy vimming!</p>
+
+<h2>Editing Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">a  - Append text following current cursor position
+A  - Append text to the end of current line
+i  - Insert text before the current cursor position
+I  - Insert text at the beginning of the cursor line
+o  - Open up a new line following the current line and add text
+O  - Open up a new line in front of the current line and add text
+
+r  - Replace one character at the cursor position
+R  - Begin overstrike or replace mode, use ESC key to exit
+
+C  - Change till end of line
+cc - Change (replace) an entire line
+cw - Change (replace) to the end of word
+c$ - Change (replace) to the end of line
+s  - Delete character at cursor and substitute text
+S  - Delete line at cursor and substitute text (same as cc)
+xp - Transpose two letters (delete and paste, technically)
+</code></pre></div>
+<h2>Cursor Movement Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$  - Move cursor to the end of current line
+0  - Move cursor to the beginning of current line
+w  - Forward one word
+W  - Forward one word based on Whitespace
+b  - Backward one word
+B  - Backward one word based on Whitespace
+e  - End of the word
+E  - End of the word based on whitespace
+
+h  - Moves the cursor one character to the left
+l  - Moves the cursor one character to the right
+k  - Moves the cursor up one line
+j  - Moves the cursor down one line
+
+^F - Forward screenful
+^B - Backward screenful
+^f - One page forward
+^b - One page backward
+^U - Up half screenful
+^D - Down half screenful
+
+H  - Move cursor to top of screen(Head)
+M  - Move cursor to middle of screen(Middle)
+L  - Move cursor to bottom of screen(Last)
+
+zz - Position current line at top of the screen
+zt - Position current line at middle of the screen
+zb - Position current line at bottom of the screen
+
+*  - Highlight the word under cursor in forward direction
+g* - Same as above but without word boundary
+#  - Highlight the word under cursor in backward direction
+g# - Same as above but without word boundary
+/  - Pattern Search forward for the pattern
+?  - Pattern Search backward for the pattern
+n  - Next occurrence of the pattern in forward direction
+N  - Next occurrence of the pattern in forward direction
+
+gg - Move to beginning of file
+G  - Move to end of file
+
+]] - Move to next { in column 0
+[[ - Move to prev { in column 0
+][ - Move to next } in column 0
+[] - Move to prev } in column 0
+
+%  - Move to matching () | [] | {} | &lt;&gt;
+
+:mark - List marks
+ma - Mark a line
+&#39;a - Move back to the marked line
+`a - Move back to the line and marked column
+&quot;  - Move back to the last location
+
+aw - Mark a word
+ab - A () block (with braces)
+aB - A {} block (with brackets)
+ib - Inner () block
+iB - Inner {} block
+
+f[char] - Find char forward
+F[char] - Find char backward
+t[char] - Till char forward
+T[char] - Till char backward
+;       - Repeat the above command
+
+nG | :n - Cursor goes to the specified (n) line
+(10G goes to line 10)
+</code></pre></div>
+<h2>Visual Mode</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">v  - Visual mode per character
+V  - Visual mode linewise
+gv - Highlights what was previously selected in the same mode
+o  - Go to the other end of the highlighted text
+O  - move to Other corner of block
+I  - Blockwise Insert
+^V|^Q - Blockwise visual mode
+</code></pre></div>
+<h2>File Manipulation Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">:w  - Write workspace to original file
+:w  - File Write workspace to named file
+:e  - File Start editing a new file
+:r  - File Read contents of a file to the workspace
+:wq - Write file to disk and quit the editor
+:Wq - Write (save) a readonly file and quit
+:q! - Quit (no warning)
+:q  - Quit (with warning)
+ZZ  - Save workspace and quit the editor (same as :wq)
+ZQ  - Quit the editor without saving (same as :q!)
+
+:e filename  - Edit a file in a new buffer
+:bnext (:bn) - Go to next buffer
+:bprev (:bp) - Go to previous buffer
+:bd          - Delete a buffer (close a file)
+:sp filename - Open a file in a new buffer and split window
+ctrl+ws      - Split windows horizontally
+ctrl+wv      - Split windows vertically
+ctrl+ww      - Switch between windows
+ctrl+wq      - Quit a window
+
+(:10,25 w temp.txt - write lines 10 through 25 into file temp.txt)
+(Use :f to find out the line numbers you want)
+</code></pre></div>
+<h2>Text Modification Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">x   - Delete character under or after cursor
+X   - Delete character before the cursor
+dw  - Delete word from cursor on
+db  - Delete word backward
+dd  - Delete line
+d$  - Delete to end of line
+d^  - Delete to beginning of line
+
+Y   - Yank current line
+yy  - Yank current line
+y$  - Yank to end of current line from cursor
+yw  - Yank from cursor to end of current word
+5yy - Yank, for example, 5 lines
+
+p   - Paste below cursor
+P   - Paste above cursor
+&quot;2p - Paste from buffer 2 (there are 9)
+u   - Undo last change
+U   - Restore line
+
+J   - Joins the next line to the end of current line with a space
+gJ  - Joins the next line to the end of current line without a space
+
+:[range]d         - Delete [range] lines (default: current line)
+:[range]d {count} - Delete {count} lines, starting with [range]
+</code></pre></div>
+<h2>Other Useful Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Most commands can be repeated n times by typing a number before the command. (10dd means delete 10 lines)
+
+.    - Repeat last command
+U    - Convert selected text to uppercase
+u    - Convert selected text to lowercase
+~    - Toggle case of the selected characters
+=    - Fix the indentation of the current line
+
+:noh - Clear search highlight
+gf   - Open file under cursor
+gi   - Jumps to last editing point in insert mode
+
+:sort  - sort selected rows
+cltr-a - Increment the number
+cltr-x - Decrement the number
+
+q[letter] - Records a macro
+@[letter] - Plays the macro
+&quot;ap       - Paste macro
+
+cltr-v | cltr-q - Anything typed after is placed iterally
+</code></pre></div>
+<h2>Insert Mode Commands</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">cltr-w - Delete word in insert mode
+cltr-T - Indent the line
+cltr-D - Unindent the line
+cltr-n - Word completion in forward direction
+cltr-p - Word completion in backward direction
+Ctrl-c - Switch out of insert mode. Same as ESC
+cltr-x cltr-l - Line completion
+cltr-x cltr-f - File system completion
+</code></pre></div>
+<h2>Substitute Command</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">:%s/old/new/g     - replace all old with new throughout file
+:%s/old/new/gc    - Same as above but with confirmations
+%s/\%1cOLD/NEW/gi - replace all the OLD with NEW in column 1
+%s/\%1vOLD/NEW/gi - replace all the OLD with NEW in virtual column 1
+</code></pre></div>
+<h2>Global Command</h2>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">:g/pattern/command
+    - Exceute the command on the lines matching the pattern
+:g!/pattern/command | :v/pattern/command
+    - Exceute the command on the lines that do not match the pattern
+:g/pat1/s//pat2/g
+    - Replace every occurrence of pattern1 (pat1) with pat2
+:g/tIO/s//Ada.Text_IO/g
+    - Find and replace tIO by Ada.text_IO everywhere in the file
+:g/a/s// /g
+    - Replace the letter a, by blank
+:g/a/s///g
+    - Replace a by nothing
+:g/iternum/normal 20
+    - Increment all the number by 20 in the matched lines
+</code></pre></div>
+  </div>
   
   <div class="post">
     <h1 class="post-title">
@@ -144,17 +382,15 @@
     <a href="/pics_n_videos/pics/2014/07/28/my-new-toy/#disqus_thread" data-disqus-identifier="2014-07-28-my-new-toy.md">View Comments</a>
     </span>
 
-    <h2>PhotoStream</h2>
-
-<div style="margin:auto; max-width:700px;">
+    <div style="margin:auto; max-width:700px;">
     <div id="flickr_gal_ferrari"></div>
 </div>
 
-<p><link href="/js/nanoGallery/css/nanogallery.css" rel="stylesheet" type="text/css">
-<link href="/js/nanoGallery/css/themes/clean/nanogallery_clean.css" rel="stylesheet" type="text/css">
-<link href="/js/nanoGallery/css/themes/light/nanogallery_light.css" rel="stylesheet" type="text/css"></p>
+<p><link href="/js/nanoGallery/css/nanogallery.min.css" rel="stylesheet" type="text/css">
+<link href="/js/nanoGallery/css/themes/clean/nanogallery_clean.min.css" rel="stylesheet" type="text/css">
+<link href="/js/nanoGallery/css/themes/light/nanogallery_light.min.css" rel="stylesheet" type="text/css"></p>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/nanoGallery/third.party/jquery-1.7.1.min.js"></script>
 
 <script type="text/javascript" src="/js/nanoGallery/third.party/transit/jquery.transit.min.js"></script>
 
@@ -195,17 +431,15 @@
     <a href="/pics_n_videos/pics/2014/07/18/my_tech/#disqus_thread" data-disqus-identifier="2014-07-18-my_tech.md">View Comments</a>
     </span>
 
-    <h2>PhotoStream</h2>
-
-<div style="margin:auto; max-width:700px;">
+    <div style="margin:auto; max-width:700px;">
     <div id="flickr_gal_tech_setup"></div>
 </div>
 
-<p><link href="/js/nanoGallery/css/nanogallery.css" rel="stylesheet" type="text/css">
-<link href="/js/nanoGallery/css/themes/clean/nanogallery_clean.css" rel="stylesheet" type="text/css">
-<link href="/js/nanoGallery/css/themes/light/nanogallery_light.css" rel="stylesheet" type="text/css"></p>
+<p><link href="/js/nanoGallery/css/nanogallery.min.css" rel="stylesheet" type="text/css">
+<link href="/js/nanoGallery/css/themes/clean/nanogallery_clean.min.css" rel="stylesheet" type="text/css">
+<link href="/js/nanoGallery/css/themes/light/nanogallery_light.min.css" rel="stylesheet" type="text/css"></p>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="/js/nanoGallery/third.party/jquery-1.7.1.min.js"></script>
 
 <script type="text/javascript" src="/js/nanoGallery/third.party/transit/jquery.transit.min.js"></script>
 
@@ -282,7 +516,7 @@
   <div class="post">
     <h1 class="post-title">
       <a href="/tech_n_gizmos/tech/data_analytics/2014/06/20/vowpal-wabbit/">
-        Vowpal Wabbit Installation
+        Installing Vowpal Wabbit on Ubuntu
       </a>
     </h1>
 
@@ -319,156 +553,6 @@ sudo make install
 </code></pre></div>
   </div>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/tech_n_gizmos/tech/hadoop/2014/06/02/cloudera-installation/">
-        Cloudera Installation
-      </a>
-    </h1>
-
-    <span class="post-date">02 Jun 2014 |
-    
-    3 min. read |
-    <a href="/tech_n_gizmos/tech/hadoop/2014/06/02/cloudera-installation/#disqus_thread" data-disqus-identifier="2014-06-02-cloudera-installation.md">View Comments</a>
-    </span>
-
-    <h2>Installing Cloudera on Ubuntu 12.04 LTS</h2>
-
-<hr>
-
-<ul>
-<li><p>Install the <strong>prerequisites</strong> for Cloudera-Manager and CDH</p>
-
-<ul>
-<li>Install ssh</li>
-</ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install ssh
-sudo apt-get -y install rsync
-sudo apt-get -y install openssh-server
-</code></pre></div>
-<ul>
-<li>Install python avro</li>
-</ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install python-virtualenv
-sudo apt-get -y install python-setuptools
-sudo easy_install virtualenv
-sudo easy_install avro
-</code></pre></div></li>
-<li><p>Set up <strong>cloudera user account</strong></p>
-
-<p>Create the cloudera user account</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo useradd -G sudo -s /bin/bash -m cloudera
-</code></pre></div>
-<p>Set a password for the account</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo passwd cloudera
-</code></pre></div></li>
-<li><p>The installation requires an account with <strong>password less sudo rights</strong>. Hence, make the following temporary changes and <em>revert back these changes after the installation</em></p>
-
-<ul>
-<li>Open the file /etc/sudoers
-<code>
-sudo nano /etc/sudoers
-</code></li>
-<li>Add the following line to the file</li>
-</ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">%cloudera ALL=(ALL:ALL) NOPASSWD:ALL
-</code></pre></div></li>
-<li><p>Config <strong>hostname</strong> on all the nodes</p>
-
-<ul>
-<li>This article assumes the use of IPv4 entries only</li>
-<li>Use FQDN in <code>/etc/hosts</code></li>
-<li>Make the necessary changes to <code>/etc/hosts</code> and <code>/etc/hostname</code></li>
-<li>Comment out all the lines which start with <code>127.*</code>, as we would be using the host&#39;s network ip-address</li>
-<li><p>Add the appropriate ip-addresses and hostnames for all the nodes in the below mentioned format</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">IP-Address  Full-Qualified-Hostname  Short-Hostname
-</code></pre></div></li>
-<li><p>For example:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">10.47.82.249 abc00.abc.com abc00
-10.47.83.45  abc01.abc.com abc01
-10.47.82.83  abc02.abc.com abc02
-10.47.82.89  abc03.abc.com abc03
-</code></pre></div></li>
-<li><p>Use the Short-hostname in the <code>/etc/hostname</code></p></li>
-<li><p>To make sure all the configurations work run the following commands</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">hostname
-hostname -a
-hostname -f
-</code></pre></div></li>
-<li><p>For Example</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">~ hostname
-abc00
-~ hostname -a
-abc00
-~ hostname -f
-abc00.abc.com
-</code></pre></div></li>
-</ul></li>
-<li><p>Set up <strong>keyless ssh login</strong> for user cloudera</p>
-
-<ul>
-<li><p>Generate the SSH Keypair file, this would enable login without password</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-keygen -t rsa
-sudo chmod 600 ~/.ssh/id_dsa.pub
-</code></pre></div>
-<ul>
-<li>When prompted for a file, use default</li>
-<li>When prompted for a password, leave it blank</li>
-</ul></li>
-<li><p>Copy the SSH Keypair file to all the remote host</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">ssh-copy-id -i ~/.ssh/id_rsa.pub cloudera@abc00.abc.com
-ssh-copy-id -i ~/.ssh/id_rsa.pub cloudera@abc01.abc.com
-</code></pre></div></li>
-</ul></li>
-<li><p>Run the Cloudera Manager Installer</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">wget http://archive.cloudera.com/cm5/installer/latest/cloudera-manager-installer.bin
-chmod +x cloudera-manager-installer.bin
-sudo ./cloudera-manager-installer.bin
-</code></pre></div>
-<ul>
-<li>Once the cloudera manager is installed it would automatically open the browser window with a web interface</li>
-<li>The default password for the application is <em>admin:admin</em></li>
-<li>The same can the done manually at any time by invoking hostname:7180 in the browser</li>
-</ul></li>
-<li><p>To uninstall the Cloudera Manager and CDH at any moment do the follows:</p>
-
-<ul>
-<li>Step 1: Stop all of your services.</li>
-<li><p>Step 2:</p>
-
-<ul>
-<li>Uninstall the Cloudera Manager Server and its components</li>
-</ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo /usr/share/cmf/uninstall-cloudera-manager.sh
-</code></pre></div>
-<ul>
-<li><p>If uninstall-cloudera-manager.sh somehow doesn&#39;t work, do as follows:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service cloudera-scm-server stop
-sudo service cloudera-scm-server-db stop
-</code></pre></div></li>
-</ul></li>
-<li><p>Step 3: On all Agent hosts, uninstall CDH and the Cloudera Manager Agents.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service cloudera-scm-agent stop
-</code></pre></div></li>
-<li><p>Step 4: On all Agent hosts, remove all Cloudera Manager data.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo rm -Rf /usr/share/{cmf,hue} /var/lib/cloudera* /var/cache/yum/cloudera*
-</code></pre></div></li>
-<li><p>Step 5: Remove the Cloudera Manager lock file.</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo rm /tmp/.scm_prepare_node.lock
-</code></pre></div></li>
-<li><p>Step 6: Finally (just to make sure nothing is left out)</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service cloudera-scm-server stop
-sudo service cloudera-scm-server-db stop
-sudo apt-get remove  cloudera-manager-server cloudera-manager-server-db cloudera-manager-daemons
-sudo service cloudera-scm-agent hard_stop
-sudo apt-get remove cloudera-manager-agent cloudera-manager-daemons
-sudo rm -rf /usr/share/cmf
-</code></pre></div></li>
-</ul></li>
-</ul>
-
-  </div>
-  
 </div>
 
 <script type="text/javascript">
@@ -498,14 +582,16 @@ sudo rm -rf /usr/share/cmf
 </div>
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-52928744-1', 'auto');
-  ga('send', 'pageview');
+  ga('create', 'UA-52928744-2', 'auto');
+    ga('send', 'pageview');
+
 </script>
+
 
       </div>
     </div>
