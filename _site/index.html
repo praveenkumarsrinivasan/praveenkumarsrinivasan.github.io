@@ -157,10 +157,10 @@
 <hr>
 
 <ul>
-<li><p>Install the <strong>prerequisites</strong> for Puppet-Master</p>
+<li><p>Install <strong>Puppet-Master</strong></p>
 
 <ul>
-<li><p>Install packages</p>
+<li><p>Install prerequisite packages</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install ssh
 sudo apt-get -y install vim
 sudo apt-get -y install git
@@ -169,7 +169,7 @@ sudo apt-get -y install zlib1g-dev
 sudo apt-get -y install zlib1g
 sudo apt-get -y install libssl-dev
 </code></pre></div></li>
-<li><p>Install <code>Ruby 2+</code> and <em>Gems</em></p>
+<li><p>Install <strong>Ruby 2+</strong> and <strong>Gems</strong></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">wget ftp://xyz.lcs.mit.edu/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
 tar -xvf ruby-2.0.0-p247.tar.gz
 ./configure
@@ -179,7 +179,7 @@ wget http://production.cf.rubygems.org/rubygems/rubygems-2.4.1.tgz
 tar -xvf rubygems-2.4.1.tgz
 sudo ruby setup.rb
 </code></pre></div></li>
-<li><p>Install Puppet Master</p>
+<li><p>Install <strong>Puppet Master</strong></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install puppetmaster
 wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 sudo dpkg -i puppetlabs-release-precise.deb
@@ -190,8 +190,7 @@ sudo apt-get update
 sudo puppet resource package puppetmaster ensure=latest
 sudo service puppetmaster restart
 </code></pre></div></li>
-</ul></li>
-<li><p>Install Puppet Modules</p>
+<li><p>Install <strong>Puppet Modules</strong></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">sudo gem install puppet-module
 sudo gem install librarian-puppet
 
@@ -208,13 +207,13 @@ sudo puppet resource package puppetdb-terminus ensure=latest
 sudo puppet resource service puppetdb ensure=running enable=true
 </code></pre></div>
 <ul>
-<li><p>Add the puppet master hostname details in the puppetdb.conf</p>
+<li><p>Add the puppet master hostname details in the <code>puppetdb.conf</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">sudo vim /etc/puppet/puppetdb.conf
 [main]
     server = abc123.abc.com
     port = 8081
 </code></pre></div></li>
-<li><p>Add the follwing config in the puppet.conf</p>
+<li><p>Add the following config in the <code>puppet.conf</code></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">sudo vim /etc/puppet/puppet.conf
 [master]
     storeconfigs = true
@@ -241,15 +240,16 @@ sudo service puppetmaster start/stop
 <div class="highlight"><pre><code class="text language-text" data-lang="text">sudo puppet cert --list
 sudo puppet cert --sign &lt;puppetagent-hostname&gt;
 </code></pre></div></li>
-<li><p>Install the <strong>prerequisites</strong> for Puppet-Agent</p>
+</ul></li>
+<li><p>Install <strong>Puppet-Agent</strong></p>
 
 <ul>
-<li><p>Install packages</p>
+<li><p>Install prerequisite packages</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install ssh
 sudo apt-get -y install vim
 sudo apt-get -y install puppet
 </code></pre></div></li>
-<li><p>Install Puppet Agent</p>
+<li><p>Install <strong>Puppet Agent</strong></p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 sudo dpkg -i puppetlabs-release-precise.deb
 sudo apt-get update
@@ -257,12 +257,12 @@ sudo apt-get -y install puppet
 sudo apt-get update
 sudo puppet resource package puppet ensure=latest
 </code></pre></div></li>
-</ul></li>
 <li><p>Add the necessary host details in the <code>/etc/hosts</code> file</p></li>
 <li><p>Change <code>start=yes</code> in <code>/etc/default/puppet</code>, to start puppet agent client at boot</p></li>
 <li><p>Use the following command to sync Puppet-Agent config with Puppet-Master</p>
 <div class="highlight"><pre><code class="text language-text" data-lang="text">sudo puppet agent --test --server=&#39;puppetmaster-hostname&#39;
 </code></pre></div></li>
+</ul></li>
 </ul>
 
   </div>

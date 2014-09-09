@@ -10,9 +10,9 @@ tags:              [cloudera, installation, ubuntu, puppet]
 ##Installing puppet on Ubuntu 12.04 LTS
 -------
 
-- Install the **prerequisites** for Puppet-Master
+- Install **Puppet-Master**
 {{ more }}
-    + Install packages
+    + Install prerequisite packages
 
         ```
         sudo apt-get -y install ssh
@@ -51,79 +51,79 @@ tags:              [cloudera, installation, ubuntu, puppet]
         sudo service puppetmaster restart
         ```
 
-+ Install **Puppet Modules**
-
-    ```
-    sudo gem install puppet-module
-    sudo gem install librarian-puppet
-
-    sudo puppet module install puppetlabs-stdlib
-    sudo puppet module install rcoleman-puppet_module
-    sudo puppet module install puppetlabs-puppetdb
-    sudo puppet module install dalen-puppetdbquery
-    sudo puppet module install jtopjian-sshkeys
-    ```
-
-+ Configure **puppetdb**
-
-    ```
-    export RUBYLIB=/etc/puppet/modules/puppet-puppetdbquery/lib:$RUBYLIB
-    sudo puppet resource package puppetdb ensure=latest
-    sudo puppet resource package puppetdb-terminus ensure=latest
-    sudo puppet resource service puppetdb ensure=running enable=true
-    ```
-
-    - Add the puppet master hostname details in the `puppetdb.conf`
+    + Install **Puppet Modules**
 
         ```
-        sudo vim /etc/puppet/puppetdb.conf
-        [main]
-            server = abc123.abc.com
-            port = 8081
+        sudo gem install puppet-module
+        sudo gem install librarian-puppet
+
+        sudo puppet module install puppetlabs-stdlib
+        sudo puppet module install rcoleman-puppet_module
+        sudo puppet module install puppetlabs-puppetdb
+        sudo puppet module install dalen-puppetdbquery
+        sudo puppet module install jtopjian-sshkeys
         ```
 
-    - Add the following config in the `puppet.conf`
+    + Configure **puppetdb**
 
         ```
-        sudo vim /etc/puppet/puppet.conf
-        [master]
-            storeconfigs = true
-            storeconfigs_backend = puppetdb
-            reports = store,puppetdb
+        export RUBYLIB=/etc/puppet/modules/puppet-puppetdbquery/lib:$RUBYLIB
+        sudo puppet resource package puppetdb ensure=latest
+        sudo puppet resource package puppetdb-terminus ensure=latest
+        sudo puppet resource service puppetdb ensure=running enable=true
         ```
 
-    - Add the following config in your route_file, the location of the same can be figured through the following command
+        - Add the puppet master hostname details in the `puppetdb.conf`
+
+            ```
+            sudo vim /etc/puppet/puppetdb.conf
+            [main]
+                server = abc123.abc.com
+                port = 8081
+            ```
+
+        - Add the following config in the `puppet.conf`
+
+            ```
+            sudo vim /etc/puppet/puppet.conf
+            [master]
+                storeconfigs = true
+                storeconfigs_backend = puppetdb
+                reports = store,puppetdb
+            ```
+
+        - Add the following config in your route_file, the location of the same can be figured through the following command
+
+            ```
+            puppet master --configprint route_file
+
+            sudo vim ~/.puppet/routes.yaml
+            ---
+            master:
+            facts:
+                terminus: puppetdb
+                cache: yaml
+            ```
+
+    + Add hostnames of all the nodes in `/etc/hosts`
+
+    + Check the status and control the status through following command
 
         ```
-        puppet master --configprint route_file
-
-        sudo vim ~/.puppet/routes.yaml
-        ---
-        master:
-        facts:
-            terminus: puppetdb
-            cache: yaml
+        sudo service puppetmaster status
+        sudo service puppetmaster start/stop
         ```
 
-+ Add hostnames of all the nodes in `/etc/hosts`
+    + Once the Puppet-Master and the Puppet-Agent Nodes have been setup use the following command to sign the certificate
 
-+ Check the status and control the status through following command
+        ```
+        sudo puppet cert --list
+        sudo puppet cert --sign <puppetagent-hostname>
+        ```
 
-    ```
-    sudo service puppetmaster status
-    sudo service puppetmaster start/stop
-    ```
+- Install **Puppet-Agent**
 
-+ Once the Puppet-Master and the Puppet-Agent Nodes have been setup use the following command to sign the certificate
-
-    ```
-    sudo puppet cert --list
-    sudo puppet cert --sign <puppetagent-hostname>
-    ```
-
-- Install the **prerequisites** for Puppet-Agent
-
-    + Install packages
+    + Install prerequisite packages
 
         ```
         sudo apt-get -y install ssh
@@ -142,13 +142,13 @@ tags:              [cloudera, installation, ubuntu, puppet]
         sudo puppet resource package puppet ensure=latest
         ```
 
-+ Add the necessary host details in the `/etc/hosts` file
+    + Add the necessary host details in the `/etc/hosts` file
 
-+ Change `start=yes` in `/etc/default/puppet`, to start puppet agent client at boot
+    + Change `start=yes` in `/etc/default/puppet`, to start puppet agent client at boot
 
-+ Use the following command to sync Puppet-Agent config with Puppet-Master
+    + Use the following command to sync Puppet-Agent config with Puppet-Master
 
-    ```
-    sudo puppet agent --test --server='puppetmaster-hostname'
-    ```
+        ```
+        sudo puppet agent --test --server='puppetmaster-hostname'
+        ```
 
