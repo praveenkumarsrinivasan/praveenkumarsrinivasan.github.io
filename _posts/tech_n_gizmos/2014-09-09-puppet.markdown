@@ -24,7 +24,7 @@ tags:              [cloudera, installation, ubuntu, puppet]
         sudo apt-get -y install libssl-dev
         ```
 
-    + Install Ruby 2+ and Gems
+    + Install **Ruby 2+** and **Gems**
 
         ```
         wget ftp://xyz.lcs.mit.edu/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
@@ -37,7 +37,7 @@ tags:              [cloudera, installation, ubuntu, puppet]
         sudo ruby setup.rb
         ```
 
-    + Install Puppet Master
+    + Install **Puppet Master**
 
         ```
         sudo apt-get -y install puppetmaster
@@ -51,7 +51,7 @@ tags:              [cloudera, installation, ubuntu, puppet]
         sudo service puppetmaster restart
         ```
 
-+ Install Puppet Modules
++ Install **Puppet Modules**
 
     ```
     sudo gem install puppet-module
@@ -73,7 +73,7 @@ tags:              [cloudera, installation, ubuntu, puppet]
     sudo puppet resource service puppetdb ensure=running enable=true
     ```
 
-    - Add the puppet master hostname details in the puppetdb.conf
+    - Add the puppet master hostname details in the `puppetdb.conf`
 
         ```
         sudo vim /etc/puppet/puppetdb.conf
@@ -82,7 +82,7 @@ tags:              [cloudera, installation, ubuntu, puppet]
             port = 8081
         ```
 
-    - Add the follwing config in the puppet.conf
+    - Add the following config in the `puppet.conf`
 
         ```
         sudo vim /etc/puppet/puppet.conf
@@ -131,7 +131,7 @@ tags:              [cloudera, installation, ubuntu, puppet]
         sudo apt-get -y install puppet
         ```
 
-    + Install Puppet Agent
+    + Install **Puppet Agent**
 
         ```
         wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
