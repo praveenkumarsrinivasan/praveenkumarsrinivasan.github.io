@@ -98,7 +98,7 @@ tags:              [cloudera, installation, ubuntu]
 
         ```
         ssh-keygen -t rsa
-        sudo chmod 600 ~/.ssh/id_dsa.pub
+        sudo chmod 600 ~/.ssh/id_rsa.pub
         ```
 
         + When prompted for a file, use default
