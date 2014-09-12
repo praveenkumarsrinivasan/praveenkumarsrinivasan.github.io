@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <link rel="canonical" href="/tech_n_gizmos/tech/hadoop/2014/09/09/puppet/" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Puppet Environment Setup &middot; Praveen Kumar Srinivasan
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+<!--
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+-->
+
+  <link rel="apple-touch-icon-precomposed" href="/public/pks.png">
+  <link rel="shortcut icon" sizes="64x28" href="/public/pks.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Here you would find posts on various topics, such as, Algorithms, Programming, Dev Environments, Internet Gems and Movies.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+      
+      
+      
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/tech_n_gizmos/">Tech n Gizmos</a>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/travel_n_lifestyle/">Travel n LifeStyle</a>
+        
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/movies_n_music/">Movies n Music</a>
+        
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/pics_n_videos/">Pics n Videos</a>
+        
+      
+      
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About Me</a>
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v2.0.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v2.0.0</span>
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2014. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Praveen Kumar Srinivasan</a>
+            <small style="float:right">#TechEvangelist</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        
+<div class="post">
+  <h1 class="post-title">Puppet Environment Setup</h1>
+  <span class="post-date">09 Sep 2014 |
+    Praveen |
+    
+    2 min. read |
+    <a href="/tech_n_gizmos/tech/hadoop/2014/09/09/puppet/#disqus_thread" data-disqus-identifier="2014-09-09-puppet.markdown">View Comments</a>
+  </span>
+  <h2>Installing puppet on Ubuntu 12.04 LTS</h2>
+
+<hr>
+
+<ul>
+<li><p>Install <strong>Puppet-Master</strong></p>
+
+<ul>
+<li><p>Install prerequisite packages</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install ssh
+sudo apt-get -y install vim
+sudo apt-get -y install git
+
+sudo apt-get -y install zlib1g-dev
+sudo apt-get -y install zlib1g
+sudo apt-get -y install libssl-dev
+</code></pre></div></li>
+<li><p>Install <strong>Ruby 2+</strong> and <strong>Gems</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">wget ftp://xyz.lcs.mit.edu/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
+tar -xvf ruby-2.0.0-p247.tar.gz
+./configure
+make
+sudo make install
+wget http://production.cf.rubygems.org/rubygems/rubygems-2.4.1.tgz
+tar -xvf rubygems-2.4.1.tgz
+sudo ruby setup.rb
+</code></pre></div></li>
+<li><p>Install <strong>Puppet Master</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install puppetmaster
+wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+sudo dpkg -i puppetlabs-release-precise.deb
+sudo apt-get update
+sudo apt-get -y install puppetmaster-passenger
+sudo apt-get -y install puppetmaster
+sudo apt-get update
+sudo puppet resource package puppetmaster ensure=latest
+sudo service puppetmaster restart
+</code></pre></div></li>
+<li><p>Install <strong>Puppet Modules</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo gem install puppet-module
+sudo gem install librarian-puppet
+
+sudo puppet module install puppetlabs-stdlib
+sudo puppet module install rcoleman-puppet_module
+sudo puppet module install puppetlabs-puppetdb
+sudo puppet module install dalen-puppetdbquery
+sudo puppet module install jtopjian-sshkeys
+</code></pre></div></li>
+<li><p>Configure <strong>puppetdb</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">export RUBYLIB=/etc/puppet/modules/puppet-puppetdbquery/lib:$RUBYLIB
+sudo puppet resource package puppetdb ensure=latest
+sudo puppet resource package puppetdb-terminus ensure=latest
+sudo puppet resource service puppetdb ensure=running enable=true
+</code></pre></div>
+<ul>
+<li><p>Add the puppet master hostname details in the <code>puppetdb.conf</code></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo vim /etc/puppet/puppetdb.conf
+[main]
+    server = abc123.abc.com
+    port = 8081
+</code></pre></div></li>
+<li><p>Add the following config in the <code>puppet.conf</code></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo vim /etc/puppet/puppet.conf
+[master]
+    storeconfigs = true
+    storeconfigs_backend = puppetdb
+    reports = store,puppetdb
+</code></pre></div></li>
+<li><p>Add the following config in your route_file, the location of the same can be figured through the following command</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">puppet master --configprint route_file
+
+sudo vim ~/.puppet/routes.yaml
+---
+master:
+facts:
+    terminus: puppetdb
+    cache: yaml
+</code></pre></div></li>
+</ul></li>
+<li><p>Add hostnames of all the nodes in <code>/etc/hosts</code></p></li>
+<li><p>Check the status and control the status through following command</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo service puppetmaster status
+sudo service puppetmaster start/stop
+</code></pre></div></li>
+<li><p>Once the Puppet-Master and the Puppet-Agent Nodes have been setup use the following command to sign the certificate</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo puppet cert --list
+sudo puppet cert --sign &lt;puppetagent-hostname&gt;
+</code></pre></div></li>
+</ul></li>
+<li><p>Install <strong>Puppet-Agent</strong></p>
+
+<ul>
+<li><p>Install prerequisite packages</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install ssh
+sudo apt-get -y install vim
+sudo apt-get -y install puppet
+</code></pre></div></li>
+<li><p>Install <strong>Puppet Agent</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+sudo dpkg -i puppetlabs-release-precise.deb
+sudo apt-get update
+sudo apt-get -y install puppet
+sudo apt-get update
+sudo puppet resource package puppet ensure=latest
+</code></pre></div></li>
+<li><p>Add the necessary host details in the <code>/etc/hosts</code> file</p></li>
+<li><p>Change <code>start=yes</code> in <code>/etc/default/puppet</code>, to start puppet agent client at boot</p></li>
+<li><p>Use the following command to sync Puppet-Agent config with Puppet-Master</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo puppet agent --test --server=&#39;puppetmaster-hostname&#39;
+</code></pre></div></li>
+</ul></li>
+</ul>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname  = 'praveenkumarsrinivasan',
+        disqus_identifier = '2014-09-09-puppet.markdown',
+        disqus_url        = 'http://praveenkumarsrinivasan.com/tech_n_gizmos/tech/hadoop/2014/09/09/puppet/'
+    ;
+    (function() {
+        var load = function(src){
+            var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = src;
+            var e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e);
+        };
+        load('//' + disqus_shortname + '.disqus.com/count.js');
+        if (document.getElementById('disqus_thread')) {
+            load('//' + disqus_shortname + '.disqus.com/embed.js');
+        }
+    })();
+</script>
+
+
+<div class="related">
+  <h2>Other Posts</h2>
+  <ul class="related-posts">
+      
+      <li>
+        <h3>
+          <a href="/tech_n_gizmos/tech/vim/2014/08/01/vim/">
+            Vim Study Series
+            <small>01 Aug 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pics_n_videos/pics/2014/07/28/my-new-toy/">
+            My new toy
+            <small>28 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/pics_n_videos/pics/2014/07/18/my_tech/">
+            My tech setup
+            <small>18 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+
+  </ul>
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52928744-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+      </div>
+    </div>
+
+  </body>
+</html>
