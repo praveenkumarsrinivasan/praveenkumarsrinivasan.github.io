@@ -127,7 +127,7 @@ $(document).ready(function() {
     var i = 1;
     function change() {
         setInterval(function () {
-            if (i < 4) {
+            if (i < 7) {
                 changeImages(i);
             } else {
                 i=1;

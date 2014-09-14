@@ -164,10 +164,10 @@ I walked in my office for the first time, and there he was, a simple, sober pers
                 <div class="event one-third left">
                     <h2>Reception</h2>
                     <p class="bold">
-                        September 26th, 2014
+                        September 26th, 2014 7.00 PM
 
-                        <p>at Delhi</p>
-                        <p>Venue to be updated soon</p>
+                        <p>at August Hue (Symphony), Udyog Nagar, <br/>Rohtak Road, New Delhi</p>
+                        <p>near Peeragarhi Chowk Main Road</p>
                 </div>
             </div>
         </div>
@@ -205,7 +205,8 @@ I walked in my office for the first time, and there he was, a simple, sober pers
     <section id="directions" class="section section--directions">
         <div class="holder">
             <div class="one-third left">
-                <h1>Getting to Bangalore</h1>
+                <!--<h1>Getting to Bangalore</h1>-->
+                <h1>Getting to Delhi</h1>
                 <p class="p1">
                     <span class="s1">
                         <strong>Flying:</strong>&nbsp;Try looking for flights into MakeMyTrip. Cabs or car services are available throughout the day and would cost around INR 600-1000.</span>
@@ -218,17 +219,30 @@ I walked in my office for the first time, and there he was, a simple, sober pers
             <div class="two-thirds right">
                 <script>
                     function initialize() {
+                        /*
                         var fortune = new google.maps.LatLng(12.976917, 77.715311);
                         var mapOptions = {
                             zoom: 16,
                             center: fortune,
                         };
                         var map = new google.maps.Map(document.getElementById('map-canvas-directions'), mapOptions);
-                        
+
                         var marker = new google.maps.Marker({
                             position: fortune,
                             map: map,
                             title: 'Fortune Select Trinity'
+                        */
+                        var fortune = new google.maps.LatLng(28.680827,77.084841);
+                        var mapOptions = {
+                            zoom: 16,
+                            center: fortune,
+                        };
+                        var map = new google.maps.Map(document.getElementById('map-canvas-directions'), mapOptions);
+
+                        var marker = new google.maps.Marker({
+                            position: fortune,
+                            map: map,
+                            title: 'August Hue'
                         });
                     }
 
