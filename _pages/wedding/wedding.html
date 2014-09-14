@@ -170,8 +170,8 @@ I walked in my office for the first time, and there he was, a simple, sober pers
                     <p class="bold">
                         September 26th, 2014 7.00 PM
 
-                        <p>at August Hue (Symphony), Udgog Nagar, <br/>Rohtak Road, New Delhi</p>
-                        <p>Peeragarhi Chowk Main Road</p>
+                        <p>at August Hue (Symphony), Udyog Nagar, <br/>Rohtak Road, New Delhi</p>
+                        <p>near Peeragarhi Chowk Main Road</p>
                 </div>
             </div>
         </div>
@@ -222,17 +222,31 @@ I walked in my office for the first time, and there he was, a simple, sober pers
             <div class="two-thirds right">
                 <script>
                     function initialize() {
+                        /*
                         var fortune = new google.maps.LatLng(12.976917, 77.715311);
                         var mapOptions = {
                             zoom: 16,
                             center: fortune,
                         };
                         var map = new google.maps.Map(document.getElementById('map-canvas-directions'), mapOptions);
-                        
+
                         var marker = new google.maps.Marker({
                             position: fortune,
                             map: map,
                             title: 'Fortune Select Trinity'
+                        */
+
+                        var fortune = new google.maps.LatLng(28.681599,77.09242);
+                        var mapOptions = {
+                            zoom: 16,
+                            center: fortune,
+                        };
+                        var map = new google.maps.Map(document.getElementById('map-canvas-directions'), mapOptions);
+
+                        var marker = new google.maps.Marker({
+                            position: fortune,
+                            map: map,
+                            title: 'August Hue'
                         });
                     }
 
