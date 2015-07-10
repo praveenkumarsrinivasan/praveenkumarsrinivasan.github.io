@@ -104,6 +104,8 @@
       
       
       
+      
+      
 
     <!--
     <a class="sidebar-nav-item" href="/archive/v2.0.0.zip">Download</a>
@@ -114,7 +116,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; 2014. All rights reserved.
+      &copy; 2015. All rights reserved.
     </p>
   </div>
 </div>
@@ -136,6 +138,60 @@
 
       <div class="container content">
         <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/pics_n_videos/pics/2015/07/10/my-instagram/">
+        Instagram Feed
+      </a>
+    </h1>
+
+    <span class="post-date">10 Jul 2015 |
+    
+     &lt; 1 min. read |
+    <a href="/pics_n_videos/pics/2015/07/10/my-instagram/#disqus_thread" data-disqus-identifier="2015-07-10-my-instagram.md">View Comments</a>
+    </span>
+
+    <h2>Instagram Feed</h2>
+
+<div style="margin:auto; max-width:700px;">
+    <div id="instafeed"></div>
+</div>
+
+<style>
+#instafeed a{
+    display: inline-block;
+    padding: 5px;
+}
+</style>
+
+<script type="text/javascript" src="/js/nanoGallery/third.party/jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript" src="/js/instafeed.min.js"></script>
+
+<script type="text/javascript">
+/*
+    var feed = new Instafeed({
+        clientId: 'a94c2ae0ad034899bf52977b49d936d4',
+        accessToken: '428869471.cf0499d.d8a5f0bf44424f1a970d2725c8d12450',
+        get: 'user',
+        userId: '428869471',
+        userId: 'praveen_sxi',
+    });
+    feed.run();
+*/
+
+    var userFeed = new Instafeed({
+        get: 'user',
+        userId: 428869471,
+        limit: 60,
+        accessToken: '428869471.cf0499d.d8a5f0bf44424f1a970d2725c8d12450',
+    });
+    userFeed.run();
+
+</script>
+
+  </div>
   
   <div class="post">
     <h1 class="post-title">
@@ -692,55 +748,6 @@ cltr-x cltr-f - File system completion
 :g/iternum/normal 20
     - Increment all the number by 20 in the matched lines
 </code></pre></div>
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/pics_n_videos/pics/2014/07/28/my-new-toy/">
-        My new toy
-      </a>
-    </h1>
-
-    <span class="post-date">28 Jul 2014 |
-    
-     &lt; 1 min. read |
-    <a href="/pics_n_videos/pics/2014/07/28/my-new-toy/#disqus_thread" data-disqus-identifier="2014-07-28-my-new-toy.md">View Comments</a>
-    </span>
-
-    <div style="margin:auto; max-width:700px;">
-    <div id="flickr_gal_ferrari"></div>
-</div>
-
-<p><link href="/js/nanoGallery/css/nanogallery.min.css" rel="stylesheet" type="text/css">
-<link href="/js/nanoGallery/css/themes/clean/nanogallery_clean.min.css" rel="stylesheet" type="text/css">
-<link href="/js/nanoGallery/css/themes/light/nanogallery_light.min.css" rel="stylesheet" type="text/css"></p>
-
-<script type="text/javascript" src="/js/nanoGallery/third.party/jquery-1.7.1.min.js"></script>
-
-<script type="text/javascript" src="/js/nanoGallery/third.party/transit/jquery.transit.min.js"></script>
-
-<script type="text/javascript" src="/js/nanoGallery/third.party/imagesloaded/imagesloaded.pkgd.min.js"></script>
-
-<script type="text/javascript" src="/js/nanoGallery/jquery.nanogallery.min.js"></script>
-
-<script type="text/javascript">
-    jQuery("#flickr_gal_ferrari").nanoGallery({
-        userID: '65476175@N02',
-        photoset: '72157645836275676',
-        kind: 'flickr',
-        thumbnailWidth: 'auto',
-        thumbnailHeight: 180,
-        viewerDisplayLogo: false,
-        locationHash: false,
-        //thumbnailDisplayInterval: 0,
-        //thumbnailDisplayTransition: false,
-        thumbnailHoverEffect: [{'name':'imageScale150','duration':300},{'name':'borderDarker'}],
-        thumbnailLabel: {display:false, position:'onBottom', descriptionMaxLength:20, size:'9px' },
-        theme: 'light',
-        colorScheme: 'light'
-    });
-</script>
-
   </div>
   
 </div>

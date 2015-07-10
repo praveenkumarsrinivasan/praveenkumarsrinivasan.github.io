@@ -3,7 +3,7 @@
 
   <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
-  <link rel="canonical" href="/tech_n_gizmos/tech/data_analytics/2014/06/20/vowpal-wabbit/" />
+  <link rel="canonical" href="/pics_n_videos/pics/2015/07/10/my-instagram/" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
   <!-- Enable responsiveness on mobile devices-->
@@ -11,7 +11,7 @@
 
   <title>
     
-      Installing Vowpal Wabbit on Ubuntu &middot; Praveen Kumar Srinivasan
+      Instagram Feed &middot; Praveen Kumar Srinivasan
     
   </title>
 
@@ -139,45 +139,59 @@
       <div class="container content">
         
 <div class="post">
-  <h1 class="post-title">Installing Vowpal Wabbit on Ubuntu</h1>
-  <span class="post-date">20 Jun 2014 |
+  <h1 class="post-title">Instagram Feed</h1>
+  <span class="post-date">10 Jul 2015 |
     Praveen |
     
-    1 min. read |
-    <a href="/tech_n_gizmos/tech/data_analytics/2014/06/20/vowpal-wabbit/#disqus_thread" data-disqus-identifier="2014-06-20-vowpal-wabbit.md">View Comments</a>
+     &lt; 1 min. read |
+    <a href="/pics_n_videos/pics/2015/07/10/my-instagram/#disqus_thread" data-disqus-identifier="2015-07-10-my-instagram.md">View Comments</a>
   </span>
-  <h2>Installing the prerequisites for <code>vowpal_wabbit</code></h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">sudo apt-get -y install build-essential
-sudo apt-get -y install automake
-sudo apt-get -y install autoconf
-sudo apt-get -y install libxmu-dev
-sudo apt-get -y install gcc
-sudo apt-get -y install libpthread-stubs0-dev
-sudo apt-get -y install libtool
-sudo apt-get -y install libboost-program-options-dev
-sudo apt-get -y install zlib1g-dev
-sudo apt-get -y install libc6
-sudo apt-get -y install libgcc1
-sudo apt-get -y install libstdc++6
-</code></pre></div>
-<h2>Configure Environment</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-</code></pre></div>
-<h2>Install vowpal_wabbit</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">git clone https://github.com/JohnLangford/vowpal_wabbit.git
-cd vowpal_wabbit
-./autogen.sh
-./configure
-make
-sudo make install
-</code></pre></div>
+  <h2>Instagram Feed</h2>
+
+<div style="margin:auto; max-width:700px;">
+    <div id="instafeed"></div>
+</div>
+
+<style>
+#instafeed a{
+    display: inline-block;
+    padding: 5px;
+}
+</style>
+
+<script type="text/javascript" src="/js/nanoGallery/third.party/jquery-1.7.1.min.js"></script>
+
+<script type="text/javascript" src="/js/instafeed.min.js"></script>
+
+<script type="text/javascript">
+/*
+    var feed = new Instafeed({
+        clientId: 'a94c2ae0ad034899bf52977b49d936d4',
+        accessToken: '428869471.cf0499d.d8a5f0bf44424f1a970d2725c8d12450',
+        get: 'user',
+        userId: '428869471',
+        userId: 'praveen_sxi',
+    });
+    feed.run();
+*/
+
+    var userFeed = new Instafeed({
+        get: 'user',
+        userId: 428869471,
+        limit: 60,
+        accessToken: '428869471.cf0499d.d8a5f0bf44424f1a970d2725c8d12450',
+    });
+    userFeed.run();
+
+</script>
+
 </div>
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname  = 'praveenkumarsrinivasan',
-        disqus_identifier = '2014-06-20-vowpal-wabbit.md',
-        disqus_url        = 'http://praveenkumarsrinivasan.com/tech_n_gizmos/tech/data_analytics/2014/06/20/vowpal-wabbit/'
+        disqus_identifier = '2015-07-10-my-instagram.md',
+        disqus_url        = 'http://praveenkumarsrinivasan.com/pics_n_videos/pics/2015/07/10/my-instagram/'
     ;
     (function() {
         var load = function(src){
@@ -198,15 +212,6 @@ sudo make install
       
       <li>
         <h3>
-          <a href="/pics_n_videos/pics/2015/07/10/my-instagram/">
-            Instagram Feed
-            <small>10 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
           <a href="/tech_n_gizmos/tech/hadoop/2014/09/25/cloudera-installation/">
             Cloudera Installation
             <small>25 Sep 2014</small>
@@ -219,6 +224,15 @@ sudo make install
           <a href="/pics_n_videos/pics/2014/09/14/wedding/">
             Wedding Pics
             <small>14 Sep 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/tech_n_gizmos/tech/hadoop/2014/09/09/puppet/">
+            Puppet Environment Setup
+            <small>09 Sep 2014</small>
           </a>
         </h3>
       </li>
