@@ -13,6 +13,8 @@ tags:             [pics, photostream]
     <div id="instagram_feed"></div>
 </div>
 
+<script type="text/javascript" src="https://raw.githubusercontent.com/stevenschobert/instafeed.js/master/instafeed.min.js"></script>
+
 
 <script type="text/javascript">
     var feed = new Instafeed({
